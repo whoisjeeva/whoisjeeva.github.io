@@ -4,46 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxie</title>
+    <title>Sujon's Creation</title>
 
-    <link href=https://stackedit.io/static/css/app.3ff5d2b80a5f2cc852e01b00c29b9eb6.css rel=stylesheet>
-    <link rel="stylesheet" href="static/app.css">
-
-    <style>
-        #autocomplete {
-            position: fixed;
-            width: auto;
-            min-width: 150px;
-            background: #2c2c2c;
-            color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            display: none;
-            padding: 20px 0;
-        }
-
-        .suggestion {
-            padding: 5px 20px;
-        }
-
-        .suggestion.selected {
-            background-color: #474747;
-        }
-    </style>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700&lang=en" />
+    <link rel="stylesheet" href="css/base.css">
 </head>
 <body>
-    <div id="autocomplete"></div>
 
-    <div id="app">
+    <div class="overlay buy">
+        <div class="dialog">
+            <div class="title">Buy</div>
+            <div class="message">Please contact the developer to purchase this application.</div>
+            <div class="btns">
+                <div class="btn ok">OK</div>
+            </div>
+        </div>
     </div>
+
+
+    <div class="overlay info">
+        <div class="dialog">
+            <div class="title">Info</div>
+            <div class="message"></div>
+            <div class="btns">
+                <div class="btn ok">OK</div>
+            </div>
+        </div>
+    </div>
+
     
-    <script type=text/javascript src=https://stackedit.io/static/js/manifest.f8f7e750f6d0737b68e0.js></script>
-    <script type=text/javascript src=https://stackedit.io/static/js/vendor.89a436f29164fce8caf9.js></script>
-    <script type=text/javascript src=https://stackedit.io/static/js/app.5865965e0e77e43dcfa6.js></script>
-    <script src="static/dom.min.js"></script>
-    <script src="static/boxie.min.js"></script>
+    <header>
+        <div class="row wrap">
+            <div class="logo">
+                <h2 class="no-margin">Sujon's Creation</h2>
+                <p class="no-margin caption">Great software. Great experience</p>
+            </div>
+            <div class="menu">
+                <a href="#" target="_blank" class="btn primary outlined">Contact Devloper</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="section wrap">
+        
+    </div>
+
+
+    <footer>
+        <div class="wrap">
+            Copyright &copy; 2022 Sujon's Creation
+        </div>
+    </footer>
+
+
+    <script src="data.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
