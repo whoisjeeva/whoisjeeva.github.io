@@ -2,7 +2,7 @@ const DATA = [
     {
         image: "https://play-lh.googleusercontent.com/ZglNaa1QiP_710cX7XhLDEHp-dYtfSwHRquuG5czm3InLMf2MXb2MQrhlef1lgtAgk0=w240-h480-rw",
         title: "BreakTheCode",
-        price: 42,
+        price: 40,
         info: "As quickly and in fewer moves as possible, here is the challenge! Break the secret code!",
         appUrl: "https://play.google.com/store/apps/details?id=com.sujon.BreakTheCode",
     },
