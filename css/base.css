@@ -134,6 +134,13 @@ footer {
 /* dialog */
 
 
+.dialog .btn {
+    background-color: #eee;
+    box-shadow: none;
+    color: #222;
+}
+
+
 .overlay {
     position: fixed;
     top: 0;
