@@ -20,4 +20,11 @@ const DATA = [
         info: "Bangladesh 5G Browser is a new browser designed for Bangladeshi People. optimized for 5G networks. This browser is designed to give the user a better browsing experience, and to take advantage of the increased speed and lower latency of 5G networks. Bangladesh 5G Browser features advanced features like voice commands, which are perfect for your browsing",
         appUrl: "https://play.google.com/store/apps/details?id=com.bdbrowserreturn.browser",
     }
+        {
+        image: "https://play-lh.googleusercontent.com/ZglNaa1QiP_710cX7XhLDEHp-dYtfSwHRquuG5czm3InLMf2MXb2MQrhlef1lgtAgk0=w240-h480-rw",
+        title: "Calculator Pro",
+        price: 40,
+        info: "You Can Add Ads And Do Earn",
+        appUrl: "https://play.google.com/store/apps/details?id=com.sujon.BreakTheCode",
+    },
 ]
