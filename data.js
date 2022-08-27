@@ -21,10 +21,10 @@ const DATA = [
         appUrl: "https://play.google.com/store/apps/details?id=com.bdbrowserreturn.browser",
     },
     {
-        image: "https://play-lh.googleusercontent.com/ZglNaa1QiP_710cX7XhLDEHp-dYtfSwHRquuG5czm3InLMf2MXb2MQrhlef1lgtAgk0=w240-h480-rw",
+        image: "https://image.winudf.com/v2/image1/Y29tLnRlYXhhcHAuaG91cmNhbF9pY29uXzE1OTg1MTU3OTlfMDA4/icon.png?fakeurl=1&h=240&type=webp",
         title: "Calculator Pro",
         price: 40,
         info: "You Can Add Ads And Do Earn",
-        appUrl: "https://play.google.com/store/apps/details?id=com.sujon.BreakTheCode",
+        appUrl: "https://drive.google.com/file/d/1oTftt0FXB7y-3LJqG0x0JIsxsyWaF6_t/view?usp=sharing",
     },
 ]
