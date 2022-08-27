@@ -34,4 +34,11 @@ const DATA = [
         info: "You Can Add Ads And Do Earn",
         appUrl: "https://drive.google.com/file/d/1x4oXuRllRWoEQCfepbFuwjNqzW5F3xn1/view?usp=sharing",
     },
+    {
+        image: "https://i.ytimg.com/vi/2ZZQlgV2Gus/maxresdefault.jpg",
+        title: "Security Bowser",
+        price: 35,
+        info: "You Can Add Ads And Do Earn",
+        appUrl: "https://drive.google.com/file/d/160kJK5-9SJy27S5EPMUfdazt2vLLxcXF/view?usp=sharing",
+    },
 ]
