@@ -27,4 +27,11 @@ const DATA = [
         info: "You Can Add Ads And Do Earn",
         appUrl: "https://drive.google.com/file/d/1oTftt0FXB7y-3LJqG0x0JIsxsyWaF6_t/view?usp=sharing",
     },
+    {
+        image: "https://clickup.com/blog/wp-content/uploads/2020/01/note-taking.png",
+        title: "Notepad",
+        price: 45,
+        info: "You Can Add Ads And Do Earn",
+        appUrl: "https://drive.google.com/file/d/1x4oXuRllRWoEQCfepbFuwjNqzW5F3xn1/view?usp=sharing",
+    },
 ]
