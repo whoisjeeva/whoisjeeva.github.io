@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor — Piper</title>
+    <link rel="icon" type="image/x-icon" href="/static/piper/images/logo.svg">
+    <meta name="theme-color" content="#30302E" />
+
+    <link rel="stylesheet" href="/static/piper/css/piper.min.css">
+    <link rel="stylesheet" href="/static/piper/css/editor.min.css?q=6">
+
+    <script>
+        window.isLocalDB = true;
+    </script>
+</head>
+<body data-uid="fsuajsfasof">
+
+    <!-- <div class="toast">script saved.</div> -->
+
+    <div id="stack" style="display: none;"></div>
+    <div id="workspace" style="display: none;"></div>
+
+    <div class="editor-container">
+        <div class="top-bar">
+            <a class="logo ignore" href="/piper">
+                <img src="/static/piper/images/logo.svg" alt="Piper">
+                <span>Piper</span>
+            </a>
+
+            <div class="title"></div>
+
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a id="run" class="ignore btn" href="#">
+                            <i class="icon material-icons">play_arrow</i> Run
+                        </a>
+                    </li>
+                    <li><a href="#" class="ext-settings btn ignore"><i class="material-icons">settings</i> Settings</a></li>
+                    <li>
+                        <a id="save" class="ignore btn" href="#">
+                            <i class="icon material-icons">save</i> Save
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="editor-and-sidebar">
+            <div id="blockly-div"></div>
+            <div class="sidebar">
+                <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1517962596069817"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                    style="display:inline-block;width:360px;height:800px"
+                    data-ad-client="ca-pub-1517962596069817"
+                    data-ad-slot="5292118227"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script> -->
+            </div>
+        </div>
+    </div>
+
+
+    <div id="code" style="display: none;"></div>
+
+    <div class="overlay"></div>
+    <div class="dialog element-selector-dialog" style="width: auto;">
+        <div class="content">Waiting for elements...</div>
+        <div class="btns">
+            <button class="cancel">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        var url = new URL(location.href);
+        var uid = url.searchParams.get("id");
+        document.body.setAttribute("data-uid", uid);
+        /* Configs */
+        window.isExtension = true;
+        localStorage.setItem('isDark', true);
+        window.addEventListener("beforeunload", function (e) {
+            var confirmationMessage = 'It looks like you have been editing something. '
+                                    + 'If you leave before saving, your changes will be lost.';
+
+            (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+            return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+        });
+    </script>
+
+    <script src="/static/piper/js/local.bundle.js?q=4"></script>
+    <!-- <script src="/static/piper/js/local.bundle.js?q=4"></script> -->
+</body>
+</html>

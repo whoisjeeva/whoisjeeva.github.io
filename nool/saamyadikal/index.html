@@ -1,0 +1,57 @@
+
+
+<div class="wrap read-page">
+
+    {% set book_pages = page.generator.related.page | selectattr("bookId", "==", page.generator.row.bookId) %}
+
+    <div class="cover-image-container">
+        <img src="{{ page.generator.row.coverImage }}" alt="{{ page.generator.row.thangtitle }}" class="cover-image">
+        <div class="description">
+            <h1 class="title" style="margin-top: 0;">{{ page.generator.row.title }}</h1>
+            {{ page.generator.row.description }}<br><br> 
+            - {{ page.generator.row.authors }}
+            <br><br>
+            <div><strong>Source:</strong> {{ page.generator.row.source }}</div>
+            <div><strong>Licesne:</strong> {{ page.generator.row.license }}</div>
+        </div>
+    </div>
+    {% for single_page in book_pages %}
+        {% set single_page_content = json.loads(single_page.content) %}
+        {% for content in single_page_content %}
+
+            {% if content.type == "para" %}
+            <p data-center="{% if 'center' in content.extras %}yes{% else %}no{% endif %}">{{ content.line }}</p>
+
+            {% elif content.type == "image" %}
+            <img src="{{ content.line }}" class="page-image">
+            
+            {% elif content.type == "heading" %}
+            <h2 id="{{ content.line | slugify }}">{{ content.line.replace("\n", "<br>")|safe }}</h2>
+
+            {% elif content.type == "jump" %}
+            {% if content.extras[0].startswith("http") %}
+            <a href="{{ content.extras[0] }}" class="jump ignore">{{ content.line }}</span></a>
+            {% else %}
+            <div><a href="#{{ content.line | slugify }}" class="jump ignore pagination">{{ content.line }}</a></div>
+            {% endif %}
+            
+            {% elif content.type == "code" %}
+            <pre class="code"><code>{{ content.line }}</code></pre>
+            
+            {% elif content.type == "highlight" %}
+            <pre class="highlight">{{ content.line }}</pre>
+
+            {% elif content.type == "external" %}
+            <a href="{{ content.extras[0] }}">{{ content.line }}</a>
+
+            {% elif content.type == "list" %}
+            <ul>
+                {% for item in content.line.split("\n") %}
+                <li class="md">{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        {% endfor %}
+    {% endfor %}
+</div>

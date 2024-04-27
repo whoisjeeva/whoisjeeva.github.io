@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Automation Toolkit — Piper</title>
+    <link rel="icon" type="image/x-icon" href="/static/piper/images/logo.svg">
+    <meta name="theme-color" content="#30302E" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/piper/css/piper.min.css?q=6">
+
+    <script>
+        window.isLocalDB = true;
+    </script>
+</head>
+<body>
+
+    <div id="mobile-nav-overlay"></div>
+    <div id="mobile-nav">
+        <div class="list">
+            <a href="#" class="ignore create-script">New Script</a>
+            <a href="#" class="ignore import-script">Import</a>
+            <a href="#" class="ignore ext-settings">Settings</a>
+        </div>
+
+        <div class="spacer"></div>
+
+        <a href="#" id="close" class="ignore">Close</a>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="dialog run-dialog" style="padding: 20px;">
+        <div class="content">Fetching code...</div>
+    </div>
+
+    <div id="flash" style="display: none;">You are using Piper without signing in. Your scripts will be stored in your browser.</div>
+
+    <header>
+        <div class="wrap">
+            <a class="logo ignore" href="/piper">
+                <img src="/static/piper/images/logo.svg" alt="Piper">
+                <span>Piper</span>
+            </a>
+
+            <div class="nav">
+                <div class="mobile-menu-icon">Menu <img src="/static/images/menu.svg" alt="Menu"></div>
+                <ul>
+                    <li><a href="#" class="create-script">New Script</a></li>
+                    <li><a href="#" class="import-script">Import</a></li>
+                    <li><a href="#" class="ext-settings btn ignore"><i class="material-icons">settings</i> Settings</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="wrap">
+        <div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1517962596069817"
+                crossorigin="anonymous"></script>
+            <!-- horizontal_ad -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-1517962596069817"
+                data-ad-slot="7371486651"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <br>
+        <div class="script-list">
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/whoisjeeva/domjs/dist/dom.min.js"></script>
+    <script src="/static/piper/js/home.bundle.js?q=5"></script>
+</body>
+</html>

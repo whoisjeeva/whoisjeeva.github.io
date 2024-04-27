@@ -1,0 +1,17 @@
+---
+title: "Tamil Books & Novels — Suyambu"
+layout: library
+generator:
+    from: mysql
+    db: nool
+    host: localhost
+    port: 3306
+    username: root
+    password: 
+    table: book
+    order: by id desc
+permalink: /nool/{{ page.generator.row.thangtitle | slugify }}
+---
+
+
+{{ page.generator.row.title }}
