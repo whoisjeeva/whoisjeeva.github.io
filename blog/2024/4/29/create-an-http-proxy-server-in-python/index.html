@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating an HTTP Proxy Server in Python — Suyambu</title>
+    <link rel="icon" type="image/x-icon" href="/website/static/images/fav.svg">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <script data-ad-client="ca-pub-1517962596069817" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/whoisjeeva/domjs/dist/dom.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/blog/css/blog.min.css?q=2">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/solarized-light.min.css">
+</head>
+
+<body>
+    <div id="mobile-nav-overlay"></div>
+    <div id="mobile-nav">
+        <div class="list">
+            <a href="#" class="ignore" style="width: 100%; display: block;"><script async src="https://cse.google.com/cse.js?cx=b3ec287595c79446b">
+</script>
+<div class="gcse-search"></div></a>
+        </div>
+
+        <div class="spacer"></div>
+
+        <a href="#" id="close" class="ignore">Close</a>
+    </div>
+
+
+    <header>
+        <div class="wrap">
+            <a class="logo ignore" href="/blog">
+                <img src="/static/images/logo.svg" alt="Suyambu">
+                <span>Suyambu<br><span class="sub">BLOG</span></span>
+            </a>
+
+            <div class="nav">
+                <div class="mobile-menu-icon">Menu <img src="/static/images/menu.svg" alt="Menu"></div>
+                <ul>
+                    <li style="width: 400px;"><script async src="https://cse.google.com/cse.js?cx=b3ec287595c79446b">
+</script>
+<div class="gcse-search"></div></li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-both" style="margin-top: 0;">
+    <div class="wrap">
+        <div class="read-post-top-details">
+            <div class="details">
+                <h1>Creating an HTTP Proxy Server in Python</h1>
+                <div class="meta">
+                    <img src="/static/blog/images/avatar.png" alt="Jeeva">
+                    <div class="info">
+                        <div class="author">Jeeva</div>
+                        <div class="date">Apr 29, 2024 • <a href="#">Python, Proxy</a></div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://github.com/whoisjeeva/whoisjeeva.github.io/assets/11387981/1c735b23-827d-4ec1-9d5b-bda9abd7da08" alt="Creating an HTTP Proxy Server in Python">
+        </div>
+        <div class="read-post">
+            <p>An HTTP proxy server acts as an intermediary between a client and a server. It facilitates communication between the two, allowing clients to make indirect network connections to other network services. In this tutorial, we'll create a simple HTTP proxy server in Python using the <code>http.server</code> module.</p>
+<p>To follow this tutorial, you should have basic knowledge of Python programming.</p>
+<h2>Setting up the HTTP Proxy Server</h2>
+<p>First, let's create a new Python file called <code>proxy_server.py</code>, and open it in your favorite text editor.</p>
+<pre><code>import http.server
+import socketserver
+import urllib.request
+
+PORT = 8000
+
+class Proxy(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        url = self.path
+        try:
+            response = urllib.request.urlopen(url)
+            self.send_response(response.status)
+            self.send_header('Content-type', response.headers['Content-type'])
+            self.end_headers()
+            self.wfile.write(response.read())
+        except Exception as e:
+            self.send_error(500, str(e))
+
+with socketserver.TCPServer((&quot;&quot;, PORT), Proxy) as httpd:
+    print(&quot;Serving at port&quot;, PORT)
+    httpd.serve_forever()
+</code></pre>
+<p>In our code, we begin by importing the necessary modules: <code>http.server</code>, <code>socketserver</code>, and <code>urllib.request</code>. We then define the port number for our proxy server. Next, we create a class called Proxy, which inherits from <code>http.server.SimpleHTTPRequestHandler</code>. This class is responsible for handling incoming HTTP requests. By overriding the <code>do_GET</code> method, we intercept GET requests. Within the <code>do_GET</code> method, we extract the requested URL from self.path. Using <code>urllib.request.urlopen()</code>, we fetch the content from the requested URL. Finally, we send the fetched content back to the client.</p>
+<p>To run the proxy server, simply execute the Python script:</p>
+<pre><code>$ python proxy_server.py
+</code></pre>
+<h2>Conclusion</h2>
+<p>In this tutorial, we created a simple HTTP proxy server in Python using the <code>http.server</code> module. This proxy server can handle basic GET requests. For a more robust solution, you can extend this code to handle other HTTP methods, headers, and HTTPS requests. We publish new coding tutorial every week don't forget to check daily.</p>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://suyambu-net.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<p><br><br></p>
+
+    <footer>
+    <div class="wrap" style="padding-top: 40px;">
+        <div class="col">
+            <a class="logo ignore" href="/">
+                <img src="/static/images/logo.svg" alt="Suyambu">
+                <span>Suyambu</span>
+            </a>
+
+            <a href="/privacy-policy">Privacy Policy</a>
+            <!-- <a href="#">Terms of Use</a> -->
+            <a href="/cookie-policy">Cookie Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>Menu</h3>
+            <a href="/piper">Piper</a>
+            <a href="/blog">Blog</a>
+            <a href="/nool">Nool (நூல்)</a>
+        </div>
+
+        <div class="col">
+            <h3>Download Piper</h3>
+            <a href="https://chrome.google.com/webstore/detail/piper/oenkglediihajpaagnbjidpijklnjbcf" target="_blank">for Chrome / Edge</a>
+            <a href="#">for Firefox</a>
+            <!-- <a href="https://play.google.com/store/apps/details?id=io.gopiper.piper" target="_blank">for Android</a> -->
+        </div>
+
+        <div class="col">
+            <div class="row social">
+                <a href="https://github.com/whoisjeeva" target="_blank" class="ignore"><img src="/static/images/github_white.png" alt="github"></a>
+                <a href="https://www.facebook.com/whoisjeeva" target="_blank" class="ignore"><img src="/static/images/facebook.png" alt="facebook"></a>
+                <a href="https://www.instagram.com/withjeeva" target="_blank" class="ignore"><img src="/static/images/instagram.png" alt="instagram"></a>
+                <a href="https://www.youtube.com/bashrc" target="_blank" class="ignore"><img src="/static/images/youtube.png" alt="youtube"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="copyright">
+            <p>Ravindrakumar Jeevakumar, A87 DS Road, Mullaitivu. Sri Lanka. <br> E-Mail <a href="mailto:hello@suyambu.net">hello@suyambu.net</a> <br> T.P +94773738706</p>
+
+            <p class="location">Suyambu is headquartered on the traditional Coast of Mullaitivu, Sri Lanka. People of this region. With gratitude, we live, work, and play on this beautiful land.</p>
+            <p class="rights">&copy; 2022 Suyambu Technologies. All Rights Reserved.</p>
+            <p class="aff">Suyambu uses monetization and subscription to generate it's revenue.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script>
+
+        var fitVideos = {};
+        fitVideos.selectors = [
+            'iframe[src*="player.vimeo.com"]',
+            'iframe[src*="youtube.com"]',
+            'iframe[src*="youtube-nocookie.com"]',
+            'iframe[src*="kickstarter.com"][src*="video.html"]',
+            'object',
+            'embed'
+        ];
+        // mselect all iframes, or mebeded videos
+        fitVideos.init = function () {
+            for (var j = 0; j < this.selectors.length; j++) {
+                var nodesToWrap = document.querySelectorAll(this.selectors[j]);
+                console.log(nodesToWrap);
+                var addedToDocument = false;
+
+                // wrappign iframes with a div
+                for (var index = 0; index < nodesToWrap.length; index++) {
+                    var wrapper = document.createElement("div");
+                    wrapper.className = "fitVideosClass";
+                    var node = nodesToWrap[index];
+                    node.style.width = "100%";
+                    node.style.height = "100%";
+                    node.style.position = "absolute";
+                    node.style.top = "0";
+                    node.style.left = "0";
+                    node.parentNode.insertBefore(wrapper, node);
+                    addedToDocument = true;
+                    node.parentNode.removeChild(node);
+                    wrapper.appendChild(node);
+                }
+
+                var iframes = document.getElementsByClassName('fitVideosClass');
+                for (var i = 0; i < iframes.length; i++) {
+                    for (var k = 0; k < nodesToWrap.length; k++) {
+                        // calculate the aspect ratio & getting the right padding
+                        var padding = (nodesToWrap[k].height / nodesToWrap[k].width) * 100;
+                        console.log(padding);
+                        iframes[i].style.position = "relative";
+                        /* 16:9 = (9/16 * 100) = 56.25 */
+                        iframes[i].style.paddingBottom = padding + "%";
+                    }
+                }
+            }
+        }
+
+        fitVideos.init();
+
+    </script>
+    <script src="/static/blog/js/blog.min.js"></script>
+</body>
+
+</html>
