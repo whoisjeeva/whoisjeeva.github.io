@@ -5,6 +5,10 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
             <url>
+  <loc>https://www.suyambu.net/ads.txt</loc>
+  <priority>1.0</priority>
+</url>
+<url>
   <loc>https://www.suyambu.net/nool/category/punnnaiktaikll/</loc>
   <priority>0.7</priority>
 </url>
@@ -4774,6 +4778,10 @@
 </url>
 <url>
   <loc>https://www.suyambu.net/blog/2024/4/28/how-to-enable-chrome-extension-to-run-on-incognito/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.suyambu.net/blog/2024/4/29/create-a-socks5-proxy-server-using-python-programming-language/</loc>
   <priority>0.7</priority>
 </url>
 <url>

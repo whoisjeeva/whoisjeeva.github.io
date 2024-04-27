@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Socks5 Proxy Server Using Python Programming Language — Suyambu</title>
+    <link rel="icon" type="image/x-icon" href="/website/static/images/fav.svg">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <script data-ad-client="ca-pub-1517962596069817" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/whoisjeeva/domjs/dist/dom.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/blog/css/blog.min.css?q=2">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/solarized-light.min.css">
+</head>
+
+<body>
+    <div id="mobile-nav-overlay"></div>
+    <div id="mobile-nav">
+        <div class="list">
+            <a href="#" class="ignore" style="width: 100%; display: block;"><script async src="https://cse.google.com/cse.js?cx=b3ec287595c79446b">
+</script>
+<div class="gcse-search"></div></a>
+        </div>
+
+        <div class="spacer"></div>
+
+        <a href="#" id="close" class="ignore">Close</a>
+    </div>
+
+
+    <header>
+        <div class="wrap">
+            <a class="logo ignore" href="/blog">
+                <img src="/static/images/logo.svg" alt="Suyambu">
+                <span>Suyambu<br><span class="sub">BLOG</span></span>
+            </a>
+
+            <div class="nav">
+                <div class="mobile-menu-icon">Menu <img src="/static/images/menu.svg" alt="Menu"></div>
+                <ul>
+                    <li style="width: 400px;"><script async src="https://cse.google.com/cse.js?cx=b3ec287595c79446b">
+</script>
+<div class="gcse-search"></div></li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-both" style="margin-top: 0;">
+    <div class="wrap">
+        <div class="read-post-top-details">
+            <div class="details">
+                <h1>Create a Socks5 Proxy Server Using Python Programming Language</h1>
+                <div class="meta">
+                    <img src="/static/blog/images/avatar.png" alt="Jeeva">
+                    <div class="info">
+                        <div class="author">Jeeva</div>
+                        <div class="date">Apr 29, 2024 • <a href="#">Python, Proxy</a></div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://github.com/whoisjeeva/gasper/assets/11387981/42710ffb-397f-4282-a106-bc2eaee16d14" alt="Create a Socks5 Proxy Server Using Python Programming Language">
+        </div>
+        <div class="read-post">
+            <p>SOCKS is an Internet protocol that exchanges network packets between a client and server through a proxy server. SOCKS5 optionally provides authentication so only authorized users may access a server.</p>
+<h2>Introduction</h2>
+<p>In today's connected world, internet security and privacy are increasingly important concerns. One way to enhance security and privacy while using the internet is by using a proxy server. A proxy server acts as an intermediary between your computer and the internet, routing your traffic through a different server and masking your IP address.</p>
+<p>SOCKS5 is one of the most popular types of proxy servers, offering a high level of security and flexibility. In this article, we'll walk through the process of building a SOCKS5 proxy server using Python. With Python's powerful networking libraries and easy-to-learn syntax, building a proxy server is easier than you might think.</p>
+<p>By the end of this article, you'll have a working SOCKS5 proxy server that you can use to enhance your online security and privacy. So, let's get started!</p>
+<h2>Setting Up Project</h2>
+<p>If you are not already installed, then install the Python3 from this URL <a href="https://www.python.org/">Python.org</a>. The create a file called proxy.py and open the file in your favourite code editor. I am using VS Code as my editor. Following commands can be used in Linux terminal or Windows powershell.</p>
+<pre><code>$ cd Desktop
+$ mkdir &quot;Socks5 Proxy Server&quot;
+$ cd &quot;Socks5 Proxy Server&quot;
+$ code proxy.py
+</code></pre>
+<h2>Python Modules</h2>
+<p>Import the following modules.</p>
+<pre><code>import socket
+import threading
+import select
+</code></pre>
+<p><strong>socket</strong> module:</p>
+<p>The 'socket' module <strong>defines how server and client machines can communicate at hardware level using socket endpoints on top of the operating system</strong>. The 'socket' API supports both connection-oriented and connectionless network protocols.</p>
+<p><strong>threading</strong> module:</p>
+<p>Python threading <strong>allows you to have different parts of your program run concurrently and can simplify your design</strong>. If you've got some experience in Python and want to speed up your program using threads, then this tutorial is for you!</p>
+<p><strong>select</strong> module:</p>
+<p><code>select()</code> Python's <code>select()</code> function is <strong>a direct interface to the underlying operating system implementation</strong>. It monitors sockets, open files, and pipes (anything with a <code>fileno()</code> method that returns a valid file descriptor) until they become readable or writable, or a communication error occurs.</p>
+<h2>Creating a Proxy Class</h2>
+<p>Then create a Proxy class that will be the entry point of our socks5 proxy server. username and password will be the authentication for our socks5 proxy.</p>
+<pre><code>SOCKS_VERSION = 5
+
+class Proxy:
+    def __init__(self):
+        self.username = &quot;username&quot;
+        self.password = &quot;password&quot;
+
+    def run(self, host, port):
+        pass
+
+
+if __name__ == &quot;__main__&quot;:
+    proxy = Proxy()
+    proxy.run(&quot;127.0.0.1&quot;, 3000)
+</code></pre>
+<h2>Creating Server Socket &amp; Binding</h2>
+<p>Inside the run method we can initialize and bind our server socket. Once we started listen for incoming connection, then we can use the <code>.accept()</code> to accept the connection this method will return a tuple that has client socket and address.</p>
+<pre><code>def run(self, host, port):
+    s = socket.socket(socket.AF_INET, socket.SOCKS_STREAM)
+    s.bind((host, port))
+    s.listen()
+
+    while True:
+        conn, addr = s.accept()
+        print(&quot;* new connection from {}&quot;.format(addr))
+        t = threading.Thread(target=self.handle_client, args=(conn,))
+        t.start()
+</code></pre>
+<h2>Handle Client</h2>
+<pre><code>def handle_client(self, connection):
+    # greeting header
+    # read and unpack 2 bytes from client
+    version, nmethods = connection.recv(2)
+</code></pre>
+<p>Read two bytes from client, this will return <code>version</code> and <code>method number</code> we will use the method number to check if it's an auth request. The version will be the version of your SOCKS proxy in this case it will be 5.</p>
+<pre><code># get available methods [0, 1, 2]
+methods = self.get_available_methods(nmethods, connection)
+
+# accept only USERNAME/PASSWORD auth
+if 2 not in set(methods):
+    # close connection
+    connection.close()
+    return
+</code></pre>
+<p><code>get_available_methods</code> implementation as follow.</p>
+<pre><code>def get_available_methods(self, nmethods, connection):
+    methods = []
+    for _ in range(nmethods):
+        methods.append(ord(connection.recv(1)))
+    return methods
+</code></pre>
+<p>This will get all available methods from the client, and we can also use this to check if the request contains auth. If it doen't have auth then we can close the connection.</p>
+<pre><code># send welcome message
+connection.sendall(bytes([SOCKS_VERSION, 2]))
+</code></pre>
+<p>If everything alright then, we can send a welcome message to client.</p>
+<pre><code>if not self.verify_credentials(connection):
+    return
+</code></pre>
+<p><code>verify_credentials</code> implementation as follow.</p>
+<pre><code>def verify_credentials(self, connection):
+    version = ord(connection.recv(1)) # should be 1
+    username_len = ord(connection.recv(1))
+    username = connection.recv(username_len).decode('utf-8')
+    password_len = ord(connection.recv(1))
+    password = connection.recv(password_len).decode('utf-8')
+
+    if username == self.username and password == self.password:
+        # success, status = 0
+        response = bytes([version, 0])
+        connection.sendall(response)
+        return True
+
+    # failure, status != 0
+    response = bytes([version, 0xFF])
+    connection.sendall(response)
+    connection.close()
+    return False
+</code></pre>
+<p>Now we can check if the username and password for the SOCKS5 proxy is correct, if it is then we will send an awk response or we will send a fail reply and close the connection.</p>
+<pre><code># request (version=5)
+version, cmd, _, address_type = connection.recv(4)
+
+if address_type == 1: # IPv4
+    address = socket.inet_ntoa(connection.recv(4))
+elif address_type == 3: # Domain name
+    domain_length = connection.recv(1)[0]
+    address = connection.recv(domain_length)
+    address = socket.gethostbyname(address)
+
+# convert bytes to unsigned short array
+port = int.from_bytes(connection.recv(2), 'big', signed=False)
+</code></pre>
+<p>Then read 4 bytes from client, the first byte contains the SOCKS version, second byte contains command like CONNECT. fourth byte we ignore it and the fifth byte will contains the address type like <code>IPv4</code> or <code>Domain</code>. We will use these information to create the address and port accordingly.</p>
+<pre><code>try:
+    if cmd == 1: # CONNECT
+        remote = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        remote.connect((address, port))
+        bind_address = remote.getsockname()
+        print(&quot;* Connected to {} {}&quot;.format(address, port))
+    else:
+        connection.close()
+
+    addr = int.from_bytes(socket.inet_aton(bind_address[0]), 'big', signed=False)
+    port = bind_address[1]
+    reply = b''.join([
+        SOCKS_VERSION.to_bytes(1, 'big'),
+        int(0).to_bytes(1, 'big'),
+        int(0).to_bytes(1, 'big'),
+        int(1).to_bytes(1, 'big'),
+        addr.to_bytes(4, 'big'),
+        port.to_bytes(2, 'big')
+    ])
+except Exception as e:
+    # return connection refused error
+    reply = self.generate_failed_reply(address_type, 5)
+
+connection.sendall(reply)
+
+# establish data exchange
+if reply[1] == 0 and cmd == 1:
+    self.exchange_loop(connection, remote)
+
+connection.close()
+</code></pre>
+<p>After we done all of verification, we will do the handshake and ready to create the exchange loop.</p>
+<h2>The Exchange Loop</h2>
+<pre><code>def exchange_loop(self, client, remote):
+    while True:
+        # wait until client or remote is available for read
+        r, w, e = select.select([client, remote], [], [])
+
+        if client in r:
+            data = client.recv(4096)
+            if remote.send(data) &lt;= 0:
+                break
+
+        if remote in r:
+            data = remote.recv(4096)
+            if client.send(data) &lt;= 0:
+                break
+</code></pre>
+<p>By using the <code>select</code> module we can check if the client or remote socket is readable or writable, if the client socket is readable then we read 4KB from the client socket and send that to the remote, and if the remote socket is readable then we read 4KB from remote and send that to the cleint.</p>
+<h2>Full code</h2>
+<pre><code>import socket
+import threading
+import select
+
+
+
+SOCKS_VERSION = 5
+
+
+class Proxy:
+    def __init__(self):
+        self.username = &quot;username&quot;
+        self.password = &quot;password&quot;
+
+    def handle_client(self, connection):
+        # greeting header
+        # read and unpack 2 bytes from a client
+        version, nmethods = connection.recv(2)
+
+        # get available methods [0, 1, 2]
+        methods = self.get_available_methods(nmethods, connection)
+
+        # accept only USERNAME/PASSWORD auth
+        if 2 not in set(methods):
+            # close connection
+            connection.close()
+            return
+
+        # send welcome message
+        connection.sendall(bytes([SOCKS_VERSION, 2]))
+
+        if not self.verify_credentials(connection):
+            return
+
+        # request (version=5)
+        version, cmd, _, address_type = connection.recv(4)
+
+        if address_type == 1:  # IPv4
+            address = socket.inet_ntoa(connection.recv(4))
+        elif address_type == 3:  # Domain name
+            domain_length = connection.recv(1)[0]
+            address = connection.recv(domain_length)
+            address = socket.gethostbyname(address)
+
+        # convert bytes to unsigned short array
+        port = int.from_bytes(connection.recv(2), 'big', signed=False)
+
+        try:
+            if cmd == 1:  # CONNECT
+                remote = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                remote.connect((address, port))
+                bind_address = remote.getsockname()
+                print(&quot;* Connected to {} {}&quot;.format(address, port))
+            else:
+                connection.close()
+
+            addr = int.from_bytes(socket.inet_aton(bind_address[0]), 'big', signed=False)
+            port = bind_address[1]
+
+            reply = b''.join([
+                SOCKS_VERSION.to_bytes(1, 'big'),
+                int(0).to_bytes(1, 'big'),
+                int(0).to_bytes(1, 'big'),
+                int(1).to_bytes(1, 'big'),
+                addr.to_bytes(4, 'big'),
+                port.to_bytes(2, 'big')
+            ])
+        except Exception as e:
+            # return connection refused error
+            reply = self.generate_failed_reply(address_type, 5)
+
+        connection.sendall(reply)
+
+        # establish data exchange
+        if reply[1] == 0 and cmd == 1:
+            self.exchange_loop(connection, remote)
+
+        connection.close()
+
+
+    def exchange_loop(self, client, remote):
+        while True:
+            # wait until client or remote is available for read
+            r, w, e = select.select([client, remote], [], [])
+
+            if client in r:
+                data = client.recv(4096)
+                if remote.send(data) &lt;= 0:
+                    break
+
+            if remote in r:
+                data = remote.recv(4096)
+                if client.send(data) &lt;= 0:
+                    break
+
+
+    def generate_failed_reply(self, address_type, error_number):
+        return b''.join([
+            SOCKS_VERSION.to_bytes(1, 'big'),
+            error_number.to_bytes(1, 'big'),
+            int(0).to_bytes(1, 'big'),
+            address_type.to_bytes(1, 'big'),
+            int(0).to_bytes(4, 'big'),
+            int(0).to_bytes(4, 'big')
+        ])
+
+
+    def verify_credentials(self, connection):
+        version = ord(connection.recv(1)) # should be 1
+
+        username_len = ord(connection.recv(1))
+        username = connection.recv(username_len).decode('utf-8')
+
+        password_len = ord(connection.recv(1))
+        password = connection.recv(password_len).decode('utf-8')
+
+        if username == self.username and password == self.password:
+            # success, status = 0
+            response = bytes([version, 0])
+            connection.sendall(response)
+            return True
+
+        # failure, status != 0
+        response = bytes([version, 0xFF])
+        connection.sendall(response)
+        connection.close()
+        return False
+
+
+    def get_available_methods(self, nmethods, connection):
+        methods = []
+        for i in range(nmethods):
+            methods.append(ord(connection.recv(1)))
+        return methods
+
+    def run(self, host, port):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind((host, port))
+        s.listen()
+
+        print(&quot;* Socks5 proxy server is running on {}:{}&quot;.format(host, port))
+
+        while True:
+            conn, addr = s.accept()
+            print(&quot;* new connection from {}&quot;.format(addr))
+            t = threading.Thread(target=self.handle_client, args=(conn,))
+            t.start()
+
+
+if __name__ == &quot;__main__&quot;:
+    proxy = Proxy()
+    proxy.run(&quot;127.0.0.1&quot;, 3000)
+</code></pre>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://suyambu-net.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<p><br><br></p>
+
+    <footer>
+    <div class="wrap" style="padding-top: 40px;">
+        <div class="col">
+            <a class="logo ignore" href="/">
+                <img src="/static/images/logo.svg" alt="Suyambu">
+                <span>Suyambu</span>
+            </a>
+
+            <a href="/privacy-policy">Privacy Policy</a>
+            <!-- <a href="#">Terms of Use</a> -->
+            <a href="/cookie-policy">Cookie Policy</a>
+        </div>
+
+        <div class="col">
+            <h3>Menu</h3>
+            <a href="/piper">Piper</a>
+            <a href="/blog">Blog</a>
+            <a href="/nool">Nool (நூல்)</a>
+        </div>
+
+        <div class="col">
+            <h3>Download Piper</h3>
+            <a href="https://chrome.google.com/webstore/detail/piper/oenkglediihajpaagnbjidpijklnjbcf" target="_blank">for Chrome / Edge</a>
+            <a href="#">for Firefox</a>
+            <!-- <a href="https://play.google.com/store/apps/details?id=io.gopiper.piper" target="_blank">for Android</a> -->
+        </div>
+
+        <div class="col">
+            <div class="row social">
+                <a href="https://github.com/whoisjeeva" target="_blank" class="ignore"><img src="/static/images/github_white.png" alt="github"></a>
+                <a href="https://www.facebook.com/whoisjeeva" target="_blank" class="ignore"><img src="/static/images/facebook.png" alt="facebook"></a>
+                <a href="https://www.instagram.com/withjeeva" target="_blank" class="ignore"><img src="/static/images/instagram.png" alt="instagram"></a>
+                <a href="https://www.youtube.com/bashrc" target="_blank" class="ignore"><img src="/static/images/youtube.png" alt="youtube"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="copyright">
+            <p>Ravindrakumar Jeevakumar, A87 DS Road, Mullaitivu. Sri Lanka. <br> E-Mail <a href="mailto:hello@suyambu.net">hello@suyambu.net</a> <br> T.P +94773738706</p>
+
+            <p class="location">Suyambu is headquartered on the traditional Coast of Mullaitivu, Sri Lanka. People of this region. With gratitude, we live, work, and play on this beautiful land.</p>
+            <p class="rights">&copy; 2022 Suyambu Technologies. All Rights Reserved.</p>
+            <p class="aff">Suyambu uses monetization and subscription to generate it's revenue.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script>
+
+        var fitVideos = {};
+        fitVideos.selectors = [
+            'iframe[src*="player.vimeo.com"]',
+            'iframe[src*="youtube.com"]',
+            'iframe[src*="youtube-nocookie.com"]',
+            'iframe[src*="kickstarter.com"][src*="video.html"]',
+            'object',
+            'embed'
+        ];
+        // mselect all iframes, or mebeded videos
+        fitVideos.init = function () {
+            for (var j = 0; j < this.selectors.length; j++) {
+                var nodesToWrap = document.querySelectorAll(this.selectors[j]);
+                console.log(nodesToWrap);
+                var addedToDocument = false;
+
+                // wrappign iframes with a div
+                for (var index = 0; index < nodesToWrap.length; index++) {
+                    var wrapper = document.createElement("div");
+                    wrapper.className = "fitVideosClass";
+                    var node = nodesToWrap[index];
+                    node.style.width = "100%";
+                    node.style.height = "100%";
+                    node.style.position = "absolute";
+                    node.style.top = "0";
+                    node.style.left = "0";
+                    node.parentNode.insertBefore(wrapper, node);
+                    addedToDocument = true;
+                    node.parentNode.removeChild(node);
+                    wrapper.appendChild(node);
+                }
+
+                var iframes = document.getElementsByClassName('fitVideosClass');
+                for (var i = 0; i < iframes.length; i++) {
+                    for (var k = 0; k < nodesToWrap.length; k++) {
+                        // calculate the aspect ratio & getting the right padding
+                        var padding = (nodesToWrap[k].height / nodesToWrap[k].width) * 100;
+                        console.log(padding);
+                        iframes[i].style.position = "relative";
+                        /* 16:9 = (9/16 * 100) = 56.25 */
+                        iframes[i].style.paddingBottom = padding + "%";
+                    }
+                }
+            }
+        }
+
+        fitVideos.init();
+
+    </script>
+    <script src="/static/blog/js/blog.min.js"></script>
+</body>
+
+</html>
