@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring the printf() function
+ — Suyambu</title>
+    <meta property="og:title" content="Exploring the printf() function
+">
+    <meta property="og:description" content="Get a quick introduction to the vocabulary and basics of programming in C, the language that inspired C++, Objective-C, and many others.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/c-programming-basics-flow-control-variables-and-pointers/exploring-the-printf-function">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4D0DAQEkaKSX_A3nzQ/learning-public-crop_675_1200/0/1641577117622?e=2147483647&v=beta&t=wMzhnKwq0RojyAiEaG6OU4ANDXqKs9TrRGkvdnlWXMU">
+    <meta property="og:site_name" content="Exploring the printf() function
+">
+    <meta name="description" content="Get a quick introduction to the vocabulary and basics of programming in C, the language that inspired C++, Objective-C, and many others.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/c-programming-basics-flow-control-variables-and-pointers/exploring-the-printf-function">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/c-programming-basics-flow-control-variables-and-pointers"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/C4D0DAQEkaKSX_A3nzQ/learning-public-crop_675_1200/0/1641577117622?e=2147483647&v=beta&t=wMzhnKwq0RojyAiEaG6OU4ANDXqKs9TrRGkvdnlWXMU" src="https://unpkg.com/coursedio-c-programming-basics-flow-control-variables-and-pointers-exploring-the-printf-function-14488819@1.0.1/video.mp4" data-overlay="2" data-title="Exploring the printf() function" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-c-programming-basics-flow-control-variables-and-pointers-excercise@1.0.1/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-add-a-new-line" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Exploring the printf() function</h1>
+        <p class="author">with Dan Gookin</p>
+        <p class="description">Get a quick introduction to the vocabulary and basics of programming in C, the language that inspired C++, Objective-C, and many others.</p>
+        <br><br>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/programming-foundations-in-c" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Programming foundations in C</p>
+                <span>49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/understanding-the-process" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding the process</p>
+                <span>3m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/obtaining-a-compiler-and-ide" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Obtaining a compiler and IDE</p>
+                <span>3m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/compiling-a-sample-program" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Compiling a sample program</p>
+                <span>5m 1s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/reviewing-the-c-language" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Reviewing the C language</p>
+                <span>3m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/introducing-c-code" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Introducing C code</p>
+                <span>3m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/sending-text-to-output" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Sending text to output</p>
+                <span>2m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-add-a-puts-statement" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Add a puts() statement</p>
+                <span>30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-add-a-puts-statement" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Add a puts() statement</p>
+                <span>1m 19s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/adding-comments-to-the-code" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Adding comments to the code</p>
+                <span>2m 50s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/exploring-the-printf-function" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exploring the printf() function</p>
+                <span>1m 57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-add-a-new-line" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Add a new line</p>
+                <span>53s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-add-a-new-line" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Add a new line</p>
+                <span>1m 32s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/working-with-escape-sequences" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with escape sequences</p>
+                <span>1m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-use-escape-sequences" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Use escape sequences</p>
+                <span>43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-use-escape-sequences" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Use escape sequences</p>
+                <span>1m 36s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/working-with-values-and-placeholders" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with values and placeholders</p>
+                <span>4m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/introducing-variables" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Introducing variables</p>
+                <span>3m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/experimenting-with-variables" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Experimenting with variables</p>
+                <span>3m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/using-character-i-o" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using character I/O</p>
+                <span>6m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/exploring-the-scanf-function" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exploring the scanf() function</p>
+                <span>4m 20s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/working-with-strings" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with strings</p>
+                <span>5m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/understanding-arithmetic-in-c" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding arithmetic in C</p>
+                <span>1m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/doing-math" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Doing math</p>
+                <span>5m 53s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/making-more-calculations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Making more calculations</p>
+                <span>2m 37s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-math-quiz" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Math quiz</p>
+                <span>46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-math-quiz" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Math quiz</p>
+                <span>2m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/making-a-decision-with-if" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Making a decision with if</p>
+                <span>5m 21s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/making-multiple-decisions" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Making multiple decisions</p>
+                <span>4m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-make-a-decision" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Make a decision</p>
+                <span>32s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-make-a-decision" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Make a decision</p>
+                <span>1m 36s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/looping-with-while" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Looping with while</p>
+                <span>5m 28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/repeating-chunks-of-code-with-for" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Repeating chunks of code with for</p>
+                <span>3m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-output-a-series-of-numbers" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Output a series of numbers</p>
+                <span>30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-output-a-series-of-numbers" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Output a series of numbers</p>
+                <span>1m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/nested-loops" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Nested loops</p>
+                <span>2m 50s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/understanding-functions" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding functions</p>
+                <span>3m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/adding-a-function" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Adding a function</p>
+                <span>4m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/passing-values-to-a-function" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Passing values to a function</p>
+                <span>2m 28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-evaluate-a-number" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Evaluate a number</p>
+                <span>31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-evaluate-a-number" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Evaluate a number</p>
+                <span>1m 16s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/returning-a-value-from-a-function" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Returning a value from a function</p>
+                <span>3m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/manipulating-single-characters" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Manipulating single characters</p>
+                <span>4m 50s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/using-logical-operators" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using logical operators</p>
+                <span>4m 8s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/manipulating-strings" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Manipulating strings</p>
+                <span>5m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-build-a-string" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Build a string</p>
+                <span>44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-build-a-string" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Build a string</p>
+                <span>2m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/exploring-constant-expressions" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exploring constant expressions</p>
+                <span>4m 36s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/understanding-arrays" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding arrays</p>
+                <span>5m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/creating-multidimensional-arrays" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating multidimensional arrays</p>
+                <span>4m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-add-a-dimension-to-an-array" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Add a dimension to an array</p>
+                <span>28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-add-a-dimension-to-an-array" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Add a dimension to an array</p>
+                <span>1m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/understanding-structures" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding structures</p>
+                <span>5m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/exploring-variables" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exploring variables</p>
+                <span>4m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/understanding-pointers" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding pointers</p>
+                <span>4m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/using-pointers" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using pointers</p>
+                <span>4m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-create-a-char-pointer" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Create a char pointer</p>
+                <span>1m</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-create-a-char-pointer" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Create a char pointer</p>
+                <span>1m 16s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/accessing-arrays-with-pointers" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Accessing arrays with pointers</p>
+                <span>6m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/creating-pointer-functions" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating pointer functions</p>
+                <span>4m 52s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/working-with-pointer-arrays" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with pointer arrays</p>
+                <span>4m</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/allocating-memory" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Allocating memory</p>
+                <span>4m 50s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/challenge-write-a-hello-program" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Write a Hello program</p>
+                <span>28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/solution-write-a-hello-program" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Write a Hello program</p>
+                <span>1m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/c-programming-basics-flow-control-variables-and-pointers/continue-exploring-c-programming" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Continue exploring C programming</p>
+                <span>1m 23s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>
