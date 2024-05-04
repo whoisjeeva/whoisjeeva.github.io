@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create launcher icon - Android Studio Essential Training
+ — Suyambu</title>
+    <meta property="og:title" content="Create launcher icon - Android Studio Essential Training
+">
+    <meta property="og:description" content="Develop apps for Android with the official Google IDE. Learn how to start building and testing mobile apps  in Android Studio.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/android-studio-essential-training-14266841/create-launcher-icon">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C560DAQFd2n5VujjODg/learning-public-crop_675_1200/0/1631900107896?e=2147483647&v=beta&t=TCB6mvYWrp1B95nEfr3EIr7Hd2LxwupF-jeuQ3GFPRc">
+    <meta property="og:site_name" content="Create launcher icon - Android Studio Essential Training
+">
+    <meta name="description" content="Develop apps for Android with the official Google IDE. Learn how to start building and testing mobile apps  in Android Studio.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/android-studio-essential-training-14266841/create-launcher-icon">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/android-studio-essential-training-14266841"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/C560DAQFd2n5VujjODg/learning-public-crop_675_1200/0/1631900107896?e=2147483647&v=beta&t=TCB6mvYWrp1B95nEfr3EIr7Hd2LxwupF-jeuQ3GFPRc" src="https://unpkg.com/coursedio-gniniart-gniniart-laitnesse-oiduts-diordna-rehcnualnoci-rehcnual-etaerc@1.0.1/video.mp4" data-overlay="2" data-title="Create launcher icon" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+
+        <a href="/learning/android-studio-essential-training-14266841/create-vector-image-assets" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Create launcher icon</h1>
+        <p class="author">with David Gassner</p>
+        <p class="description">Develop apps for Android with the official Google IDE. Learn how to start building and testing mobile apps  in Android Studio.</p>
+        <br><br>
+
+        <a href="/learning/android-studio-essential-training-14266841/android-studio-and-intellij-idea" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Android Studio and IntelliJ IDEA</p>
+                <span>1m 57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/what-you-should-know" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What you should know</p>
+                <span>1m 52s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/what-s-new-in-this-update" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What's new in this update</p>
+                <span>1m 53s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/know-your-system-requirements" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Know your system requirements</p>
+                <span>2m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/install-android-studio" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Install Android Studio</p>
+                <span>3m 27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/set-up-the-android-sdk" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Set up the Android SDK</p>
+                <span>2m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/manage-android-studio-updates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Manage Android Studio updates</p>
+                <span>3m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/update-the-android-sdk-and-tools" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Update the Android SDK and tools</p>
+                <span>2m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/create-an-android-studio-project" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create an Android Studio project</p>
+                <span>5m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/explore-a-project-s-file-structure" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Explore a project's file structure</p>
+                <span>7m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/import-sample-apps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Import sample apps</p>
+                <span>2m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/configure-android-studio" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Configure Android Studio</p>
+                <span>4m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/update-intel-haxm-software" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Update Intel HAXM software</p>
+                <span>1m 47s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/create-virtual-devices-for-app-testing" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create virtual devices for app testing</p>
+                <span>5m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/configure-physical-devices-for-testing" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Configure physical devices for testing</p>
+                <span>3m 52s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/build-and-launch-apps-on-android-devices" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Build and launch apps on Android devices</p>
+                <span>2m 28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/connect-android-studio-to-a-github-account" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Connect Android Studio to a GitHub account</p>
+                <span>2m 16s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/share-an-android-project-on-github" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Share an Android project on GitHub</p>
+                <span>3m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/commit-and-push-source-code-changes" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Commit and push source code changes</p>
+                <span>3m 31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/manage-development-branches-with-git" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Manage development branches with Git</p>
+                <span>5m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/clone-a-github-repository" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Clone a GitHub repository</p>
+                <span>3m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/use-android-studio-tool-windows" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Use Android Studio tool windows</p>
+                <span>2m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/use-menus-and-toolbars" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Use menus and toolbars</p>
+                <span>2m 44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/customize-keyboard-shortcuts" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Customize keyboard shortcuts</p>
+                <span>2m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/search-for-files-and-code" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Search for files and code</p>
+                <span>3m</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/add-external-libraries-with-dependencies" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Add external libraries with dependencies</p>
+                <span>3m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/manage-dependency-version-variables" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Manage dependency version variables</p>
+                <span>2m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/explore-the-project-structure-dialog" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Explore the Project Structure dialog</p>
+                <span>3m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/build-app-bundles-for-google-play" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Build app bundles for Google Play</p>
+                <span>4m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/define-and-manage-build-variants" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Define and manage build variants</p>
+                <span>4m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/create-new-kotlin-and-java-code-files" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create new Kotlin and Java code files</p>
+                <span>4m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/edit-code-files-in-the-editor-window" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Edit code files in the editor window</p>
+                <span>3m 40s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/rename-move-and-extract-code" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Rename, move, and extract code</p>
+                <span>4m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/create-and-use-live-templates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create and use live templates</p>
+                <span>4m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/edit-layouts-with-design-and-text-mode" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Edit layouts with design and text mode</p>
+                <span>4m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/convert-java-code-to-kotlin" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Convert Java code to Kotlin</p>
+                <span>5m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/analyze-and-fix-code-problems" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Analyze and fix code problems</p>
+                <span>3m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/apply-changes-to-running-apps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Apply changes to running apps</p>
+                <span>3m 50s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/filter-and-search-logcat-messages" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Filter and search logcat messages</p>
+                <span>4m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/use-breakpoints-and-watch-expressions" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Use breakpoints and watch expressions</p>
+                <span>3m 27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/inspect-an-app-s-database-contents" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Inspect an app's database contents</p>
+                <span>4m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/profile-resource-usage-at-runtime" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Profile resource usage at runtime</p>
+                <span>4m 40s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/create-launcher-icon" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create launcher icon</p>
+                <span>3m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/create-vector-image-assets" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create vector image assets</p>
+                <span>3m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/animate-objects-with-motionlayout" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Animate objects with MotionLayout</p>
+                <span>6m 16s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/create-an-app-with-jetpack-compose" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create an app with Jetpack Compose</p>
+                <span>3m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/explore-sample-jetpack-compose-apps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Explore sample Jetpack Compose apps</p>
+                <span>2m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/android-studio-essential-training-14266841/next-steps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps</p>
+                <span>58s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>
