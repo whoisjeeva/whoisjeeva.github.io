@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displaying form validation error messages - Full Stack Web Development with Flask
+ — Suyambu</title>
+    <meta property="og:title" content="Displaying form validation error messages - Full Stack Web Development with Flask
+">
+    <meta property="og:description" content="Build dynamic web applications using Python and Flask, the popular microframework for Python. Learn how to work with databases, web forms, Flask-Security, and more.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/full-stack-web-development-with-flask/displaying-form-validation-error-messages">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4E0DAQF7J48SzeTWrA/learning-public-crop_675_1200/0/1569948140533?e=2147483647&v=beta&t=E2SScGuxLKwT_i2DZvY6SriFXfLgR2ZgLcfG-TfsKX8">
+    <meta property="og:site_name" content="Displaying form validation error messages - Full Stack Web Development with Flask
+">
+    <meta name="description" content="Build dynamic web applications using Python and Flask, the popular microframework for Python. Learn how to work with databases, web forms, Flask-Security, and more.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/full-stack-web-development-with-flask/displaying-form-validation-error-messages">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/full-stack-web-development-with-flask"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/C4E0DAQF7J48SzeTWrA/learning-public-crop_675_1200/0/1569948140533?e=2147483647&v=beta&t=E2SScGuxLKwT_i2DZvY6SriFXfLgR2ZgLcfG-TfsKX8" src="https://unpkg.com/coursedio-htiwksalf-htiw-tnempoleved-bew-kcats-lluf-rorresegassem-rorre-noitadilav-mrof-gniyalpsid@1.0.1/video.mp4" data-overlay="2" data-title="Displaying form validation error messages" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-htiwksalf-htiw-tnempoleved-bew-kcats-lluf-excercise@1.0.1/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/full-stack-web-development-with-flask/processing-form-data-and-updating-the-database" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Displaying form validation error messages</h1>
+        <p class="author">with Christian Hur</p>
+        <p class="description">Build dynamic web applications using Python and Flask, the popular microframework for Python. Learn how to work with databases, web forms, Flask-Security, and more.</p>
+        <br><br>
+
+        <a href="/learning/full-stack-web-development-with-flask/setting-up-the-virtual-environment-and-framework" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Setting up the virtual environment and framework</p>
+                <span>3m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/installing-python-and-flask" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Installing Python and Flask</p>
+                <span>8m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/configuring-flask" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Configuring Flask</p>
+                <span>7m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-and-running-a-simple-flask-application" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating and running a simple Flask application</p>
+                <span>7m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-enrollment-application" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the enrollment application</p>
+                <span>6m 38s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/running-and-configuring-the-development-server" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Running and configuring the development server</p>
+                <span>6m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-homepage" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the homepage</p>
+                <span>8m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-navigation-links-and-route-patterns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating navigation links and route patterns</p>
+                <span>11m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-base-template" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the base template</p>
+                <span>8m 28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-child-templates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating child templates</p>
+                <span>6m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/passing-data-to-the-view" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Passing data to the view</p>
+                <span>10m 27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/accessing-data-via-request-and-response-objects" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Accessing data via request and response objects</p>
+                <span>1m 37s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/url-variables" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>URL variables</p>
+                <span>6m 34s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/working-with-the-get-method" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with the GET method</p>
+                <span>9m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/working-with-the-post-method" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with the POST method</p>
+                <span>3m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/sending-a-json-response" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Sending a JSON response</p>
+                <span>8m 1s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/installing-database-systems" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Installing database systems</p>
+                <span>8m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/setting-up-the-database" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Setting up the database</p>
+                <span>8m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/connecting-to-the-database" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Connecting to the database</p>
+                <span>12m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-documents-and-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating documents and data</p>
+                <span>7m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-data-models" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the data models</p>
+                <span>7m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/installation-and-configuration" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Installation and configuration</p>
+                <span>9m 16s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-login-and-registration-pages" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the login and registration pages</p>
+                <span>7m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/updating-the-login-route-and-login-template" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Updating the login route and login template</p>
+                <span>9m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/flashing-messages" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Flashing messages</p>
+                <span>9m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/displaying-form-validation-error-messages" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Displaying form validation error messages</p>
+                <span>4m 36s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/processing-form-data-and-updating-the-database" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Processing form data and updating the database</p>
+                <span>6m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/updating-login-route-to-interact-with-database" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Updating login route to interact with database</p>
+                <span>6m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/updating-registration-route-to-interact-with-database" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Updating registration route to interact with database</p>
+                <span>8m 20s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-courses-page" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the courses page</p>
+                <span>6m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-enrollment-page" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the enrollment page</p>
+                <span>8m 58s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/updating-the-enrollment-template" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Updating the enrollment template</p>
+                <span>4m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-the-mongodb-aggregation-pipeline" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating the MongoDB aggregation pipeline</p>
+                <span>9m 56s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/adding-the-aggregation-pipeline-to-application" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Adding the aggregation pipeline to application</p>
+                <span>5m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/creating-sessions-and-authentication" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating sessions and authentication</p>
+                <span>5m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/setting-up-the-session-for-logout-and-enrollment-routes" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Setting up the session for logout and enrollment routes</p>
+                <span>3m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/updating-the-navigation-and-testing-the-session" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Updating the navigation and testing the session</p>
+                <span>3m 57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/adding-the-welcome-message-to-layout" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Adding the welcome message to layout</p>
+                <span>3m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/installing-postman-and-the-flask-restplus-apis-extension" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Installing Postman and the Flask-RESTPlus APIs extension</p>
+                <span>4m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/fetching-data-using-get" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Fetching data using GET</p>
+                <span>8m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/inserting-data-using-post" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Inserting data using POST</p>
+                <span>6m 36s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/updating-data-using-put" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Updating data using PUT</p>
+                <span>4m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/full-stack-web-development-with-flask/deleting-data-using-delete" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Deleting data using DELETE</p>
+                <span>5m 18s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>

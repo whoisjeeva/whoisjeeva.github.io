@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable rules in URLs - Flask Essential Training
+ — Suyambu</title>
+    <meta property="og:title" content="Variable rules in URLs - Flask Essential Training
+">
+    <meta property="og:description" content="Learn the basics of Flask, a Python framework for building lightweight and dynamic web applications.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/flask-essential-training/variable-rules-in-urls">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4E0DAQH7v3MiTxsm_A/learning-public-crop_675_1200/0/1576007594340?e=2147483647&v=beta&t=OMc5fE90lZ7JKcmAAoKKe9k19wlB_V-mL4vN4RMbk4E">
+    <meta property="og:site_name" content="Variable rules in URLs - Flask Essential Training
+">
+    <meta name="description" content="Learn the basics of Flask, a Python framework for building lightweight and dynamic web applications.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/flask-essential-training/variable-rules-in-urls">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/flask-essential-training"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/C4E0DAQH7v3MiTxsm_A/learning-public-crop_675_1200/0/1576007594340?e=2147483647&v=beta&t=OMc5fE90lZ7JKcmAAoKKe9k19wlB_V-mL4vN4RMbk4E" src="https://unpkg.com/coursedio-laitnessegniniart-laitnesse-ksalf-nislru-ni-selur-elbairav@1.0.1/video.mp4" data-overlay="2" data-title="Variable rules in URLs" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-laitnessegniniart-laitnesse-ksalf-excercise@1.0.1/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/flask-essential-training/working-with-static-files" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Variable rules in URLs</h1>
+        <p class="author">with Nick Walter</p>
+        <p class="description">Learn the basics of Flask, a Python framework for building lightweight and dynamic web applications.</p>
+        <br><br>
+
+        <a href="/learning/flask-essential-training/web-development-with-flask" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Web development with Flask</p>
+                <span>55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/the-pros-and-cons-of-flask" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The pros and cons of Flask</p>
+                <span>1m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/technologies-to-use" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Technologies to use</p>
+                <span>47s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/demo-project-overview" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Demo project overview</p>
+                <span>1m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/flask-for-windows-users" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Flask for Windows users</p>
+                <span>1m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/install-flask-and-pipenv" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Install Flask and Pipenv</p>
+                <span>3m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/create-your-first-route-in-a-flask-project" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create your first route in a Flask project</p>
+                <span>6m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/flask-s-development-environment" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Flask's development environment</p>
+                <span>4m 56s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/page-templates-in-flask-with-jinja" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Page templates in Flask with Jinja</p>
+                <span>4m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/passing-data-into-flask-apps-with-forms" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Passing data into Flask apps with forms</p>
+                <span>6m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/passing-form-variables-to-other-routes-in-flask" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Passing form variables to other routes in Flask</p>
+                <span>4m 20s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/using-get-and-post-requests-in-flask" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using GET and POST requests in Flask</p>
+                <span>3m 31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/using-redirect-and-url-for-for-error-handling" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using redirect and url_for for error handling</p>
+                <span>3m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/saving-to-a-json-file" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Saving to a JSON file</p>
+                <span>5m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/parsing-a-json-file-for-conflicting-entries" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Parsing a JSON file for conflicting entries</p>
+                <span>3m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/alerting-users-with-message-flashing" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Alerting users with message flashing</p>
+                <span>5m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/file-uploads-from-users" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>File uploads from users</p>
+                <span>8m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/variable-rules-in-urls" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Variable rules in URLs</p>
+                <span>5m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/working-with-static-files" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with static files</p>
+                <span>4m 19s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/displaying-custom-error-pages" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Displaying custom error pages</p>
+                <span>5m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/implementing-sessions-and-cookies" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Implementing sessions and cookies</p>
+                <span>7m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/creating-json-apis" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating JSON APIs</p>
+                <span>2m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/template-blocks-and-base-templates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Template blocks and base templates</p>
+                <span>6m 28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/templating-flask-with-bootstrap" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Templating Flask with Bootstrap</p>
+                <span>3m 31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/blueprints-and-views-for-organization" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Blueprints and views for organization</p>
+                <span>9m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/testing-your-flask-app" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Testing your Flask app</p>
+                <span>5m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/wsgi-servers-and-how-they-work" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>WSGI servers and how they work</p>
+                <span>1m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/deploy-your-flask-app-with-gunicorn" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Deploy your Flask app with Gunicorn</p>
+                <span>8m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/flask-essential-training/next-steps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps</p>
+                <span>1m 16s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>

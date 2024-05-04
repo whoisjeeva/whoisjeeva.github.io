@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django fields - Learning Django
+ — Suyambu</title>
+    <meta property="og:title" content="Django fields - Learning Django
+">
+    <meta property="og:description" content="Learn how to build data-driven web apps with Django, the Python framework that helps you take projects from concept to launch in a matter of hours.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/learning-django-2/django-fields">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4E0DAQF8Gl4CggLCKw/learning-public-crop_675_1200/0/1587484799173?e=2147483647&v=beta&t=AG4ePOPXg4pP6rqWahmIWjcoBcM8x3FoQeYfyldEU4Y">
+    <meta property="og:site_name" content="Django fields - Learning Django
+">
+    <meta name="description" content="Learn how to build data-driven web apps with Django, the Python framework that helps you take projects from concept to launch in a matter of hours.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/learning-django-2/django-fields">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/learning-django-2"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/C4E0DAQF8Gl4CggLCKw/learning-public-crop_675_1200/0/1587484799173?e=2147483647&v=beta&t=AG4ePOPXg4pP6rqWahmIWjcoBcM8x3FoQeYfyldEU4Y" src="https://unpkg.com/coursedio-ognajd-ognajd-gninrael-ognajdsdleif-ognajd@1.0.1/video.mp4" data-overlay="2" data-title="Django fields" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-ognajd-ognajd-gninrael-excercise@1.0.1/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/learning-django-2/implement-model-and-fields" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Django fields</h1>
+        <p class="author">with Caleb Smith</p>
+        <p class="description">Learn how to build data-driven web apps with Django, the Python framework that helps you take projects from concept to launch in a matter of hours.</p>
+        <br><br>
+
+        <a href="/learning/learning-django-2/rapidly-create-web-applications" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Rapidly create web applications</p>
+                <span>49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/what-you-should-know" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What you should know</p>
+                <span>57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/github-and-the-exercise-files" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>GitHub and the exercise files</p>
+                <span>44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/what-is-django" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is Django?</p>
+                <span>1m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/install-python-and-django" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Install Python and Django</p>
+                <span>2m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/create-a-django-project" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create a Django project</p>
+                <span>4m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/create-a-django-app" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create a Django app</p>
+                <span>4m 20s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/models-routing-views-and-templates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Models, routing, views, and templates</p>
+                <span>3m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/django-models" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Django models</p>
+                <span>1m 19s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/django-fields" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Django fields</p>
+                <span>3m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/implement-model-and-fields" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Implement model and fields</p>
+                <span>5m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/django-migrations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Django migrations</p>
+                <span>6m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/import-csv-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Import CSV data</p>
+                <span>6m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/work-with-the-django-admin" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Work with the Django admin</p>
+                <span>7m 18s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/query-data-with-the-django-orm" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Query data with the Django ORM</p>
+                <span>6m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/understand-url-patterns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understand URL patterns</p>
+                <span>4m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/implement-url-patterns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Implement URL patterns</p>
+                <span>7m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/implement-django-views" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Implement Django views</p>
+                <span>7m 21s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/django-templates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Django templates</p>
+                <span>5m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/create-your-first-django-template" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create your first Django template</p>
+                <span>4m</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/doing-more-with-django-templates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Doing more with Django templates</p>
+                <span>5m 40s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/structure-templates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Structure templates</p>
+                <span>3m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/integrate-css-and-javascript" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Integrate CSS and JavaScript</p>
+                <span>5m 47s</span>
+            </div>
+        </a>
+
+        <a href="/learning/learning-django-2/next-steps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps</p>
+                <span>43s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>
