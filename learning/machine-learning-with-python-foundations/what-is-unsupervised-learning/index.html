@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is unsupervised learning? - Machine Learning with Python: Foundations
+ — Suyambu</title>
+    <meta property="og:title" content="What is unsupervised learning? - Machine Learning with Python: Foundations
+">
+    <meta property="og:description" content="Learn the basics of machine learning and how you can create a machine learning model with Python.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/machine-learning-with-python-foundations/what-is-unsupervised-learning">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4E0DAQEv0QXZlJat7A/learning-public-crop_675_1200/0/1633371437602?e=2147483647&v=beta&t=qt0-hoQnhq6TmkosCkoIiyu04mavBJ7NhGiqyAleFeM">
+    <meta property="og:site_name" content="What is unsupervised learning? - Machine Learning with Python: Foundations
+">
+    <meta name="description" content="Learn the basics of machine learning and how you can create a machine learning model with Python.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/machine-learning-with-python-foundations/what-is-unsupervised-learning">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/machine-learning-with-python-foundations"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/C4E0DAQEv0QXZlJat7A/learning-public-crop_675_1200/0/1633371437602?e=2147483647&v=beta&t=qt0-hoQnhq6TmkosCkoIiyu04mavBJ7NhGiqyAleFeM" src="https://unpkg.com/coursedio-nohtypsnoitadnuof-nohtyp-htiw-gninrael-enihcam-desivrepusnugninrael-desivrepusnu-si-tahw@1.0.1/video.mp4" data-overlay="2" data-title="What is unsupervised learning?" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-nohtypsnoitadnuof-nohtyp-htiw-gninrael-enihcam-excercise@1.0.1/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/machine-learning-with-python-foundations/what-is-supervised-learning" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">What is unsupervised learning?</h1>
+        <p class="author">with Frederick Nwanganga</p>
+        <p class="description">Learn the basics of machine learning and how you can create a machine learning model with Python.</p>
+        <br><br>
+
+        <a href="/learning/machine-learning-with-python-foundations/machine-learning-in-our-world" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Machine learning in our world</p>
+                <span>48s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/what-you-should-know" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What you should know</p>
+                <span>45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/the-tools-you-need" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The tools you need</p>
+                <span>1m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/using-the-exercise-files" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using the exercise files</p>
+                <span>1m 18s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/what-is-machine-learning" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is machine learning?</p>
+                <span>3m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/what-is-not-machine-learning" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is not machine learning?</p>
+                <span>6m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/what-is-unsupervised-learning" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is unsupervised learning?</p>
+                <span>2m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/what-is-supervised-learning" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is supervised learning?</p>
+                <span>4m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/what-is-reinforcement-learning" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is reinforcement learning?</p>
+                <span>6m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/what-are-the-steps-to-machine-learning" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What are the steps to machine learning?</p>
+                <span>5m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/things-to-consider-when-collecting-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Things to consider when collecting data</p>
+                <span>3m 48s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/how-to-import-data-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How to import data in Python</p>
+                <span>5m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/describe-your-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Describe your data</p>
+                <span>3m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/how-to-summarize-data-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How to summarize data in Python</p>
+                <span>6m</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/visualize-your-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Visualize your data</p>
+                <span>3m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/how-to-visualize-data-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How to visualize data in Python</p>
+                <span>6m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/common-data-quality-issues" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Common data quality issues</p>
+                <span>3m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/how-to-resolve-missing-data-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How to resolve missing data in Python</p>
+                <span>7m 34s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/normalizing-your-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Normalizing your data</p>
+                <span>4m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/how-to-normalize-data-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How to normalize data in Python</p>
+                <span>4m 38s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/sampling-your-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Sampling your data</p>
+                <span>4m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/how-to-sample-data-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How to sample data in Python</p>
+                <span>6m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/reducing-the-dimensionality-of-your-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Reducing the dimensionality of your data</p>
+                <span>3m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/classification-vs-regression-problems" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Classification vs. regression problems</p>
+                <span>3m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/how-to-build-a-machine-learning-model-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How to build a machine learning model in Python</p>
+                <span>5m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/common-machine-learning-algorithms" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Common machine learning algorithms</p>
+                <span>5m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-with-python-foundations/next-steps-with-applied-machine-learning" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps with applied machine learning</p>
+                <span>2m 43s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>
