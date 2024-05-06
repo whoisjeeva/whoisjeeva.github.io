@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading data sets - Python Data Analysis
+ — Suyambu</title>
+    <meta property="og:title" content="Loading data sets - Python Data Analysis
+">
+    <meta property="og:description" content="Interested in using Python for data analysis? Learn how to use Python, NumPy, and pandas together to analyze data sets large and small.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/python-data-analysis-2/loading-data-sets">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4E0DAQG4HsLeRuZrEA/learning-public-crop_675_1200/0/1583515647413?e=2147483647&v=beta&t=o0SItjl_y7YhUNqbZfqAluraff8EbYr_A4-2yUhhRLE">
+    <meta property="og:site_name" content="Loading data sets - Python Data Analysis
+">
+    <meta name="description" content="Interested in using Python for data analysis? Learn how to use Python, NumPy, and pandas together to analyze data sets large and small.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/python-data-analysis-2/loading-data-sets">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/python-data-analysis-2"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/C4E0DAQG4HsLeRuZrEA/learning-public-crop_675_1200/0/1583515647413?e=2147483647&v=beta&t=o0SItjl_y7YhUNqbZfqAluraff8EbYr_A4-2yUhhRLE" src="https://unpkg.com/coursedio-7-sisylana-atad-nohtyp-53stes-atad-gnidaol@1.0.1/video.mp4" data-overlay="2" data-title="Loading data sets" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-7-sisylana-atad-nohtyp-excercise@1.0.1/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/python-data-analysis-2/comparing-name-popularity" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Loading data sets</h1>
+        <p class="author">with Michele Vallisneri</p>
+        <p class="description">Interested in using Python for data analysis? Learn how to use Python, NumPy, and pandas together to analyze data sets large and small.</p>
+        <br><br>
+
+        <a href="/learning/python-data-analysis-2/get-started-in-data-analysis-with-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Get started in data analysis with Python</p>
+                <span>2m</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/what-you-need-to-know" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What you need to know</p>
+                <span>38s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/what-s-new-in-this-update" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What's new in this update</p>
+                <span>27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/install-anaconda-python-on-os-x" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Install Anaconda Python on OS X</p>
+                <span>2m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/install-anaconda-python-on-windows" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Install Anaconda Python on Windows</p>
+                <span>2m 52s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/working-with-jupyter-notebooks" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Working with Jupyter Notebooks</p>
+                <span>4m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/using-the-exercise-files" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using the exercise files</p>
+                <span>1m 32s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/using-python-in-the-cloud" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using Python in the cloud</p>
+                <span>2m 50s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/warmup-with-python-loops" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Warmup with Python loops</p>
+                <span>7m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/sequences-lists-tuples-and-the-slicing-syntax" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Sequences: Lists, tuples, and the slicing syntax</p>
+                <span>5m 19s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/dictionaries-and-sets" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Dictionaries and sets</p>
+                <span>5m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/comprehensions" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Comprehensions</p>
+                <span>4m 44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/advanced-python-containers" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Advanced Python containers</p>
+                <span>7m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/anagrams-overview" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Anagrams overview</p>
+                <span>1m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/loading-a-dictionary" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Loading a dictionary</p>
+                <span>4m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/finding-anagrams" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Finding anagrams</p>
+                <span>5m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/challenge-palindromes" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Palindromes</p>
+                <span>49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/solution-palindromes" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Palindromes</p>
+                <span>2m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/numpy-overview" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>NumPy overview</p>
+                <span>3m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/creating-numpy-arrays" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating NumPy arrays</p>
+                <span>5m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/indexing-numpy-arrays" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Indexing NumPy arrays</p>
+                <span>5m 20s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/doing-math-with-numpy-arrays" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Doing math with NumPy arrays</p>
+                <span>5m 21s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/special-arrays-records-and-dates" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Special arrays: Records and dates</p>
+                <span>4m 22s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/overview-of-use-case" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Overview of use case</p>
+                <span>1m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/loading-station-and-temperature-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Loading station and temperature data</p>
+                <span>6m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/filling-missing-values" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Filling missing values</p>
+                <span>5m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/smoothing-time-series" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Smoothing time series</p>
+                <span>6m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/weather-charts" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Weather charts</p>
+                <span>5m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/challenge-weather-anomalies" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Weather anomalies</p>
+                <span>46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/solution-weather-anomalies" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Weather anomalies</p>
+                <span>2m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/pandas-overview" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>pandas overview</p>
+                <span>1m 8s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/dataframes-and-series" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>DataFrames and Series</p>
+                <span>6m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/indexing-in-pandas" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Indexing in pandas</p>
+                <span>5m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/plotting" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Plotting</p>
+                <span>7m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/overview-of-use-case" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Overview of use case</p>
+                <span>44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/loading-data-sets" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Loading data sets</p>
+                <span>3m 16s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/comparing-name-popularity" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Comparing name popularity</p>
+                <span>4m 20s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/yearly-top-ten-names" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Yearly top ten names</p>
+                <span>4m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/challenge-unisex-baby-names" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Unisex baby names</p>
+                <span>1m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/solution-unisex-baby-names" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Unisex baby names</p>
+                <span>3m 27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/python-data-analysis-2/next-steps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps</p>
+                <span>58s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>
