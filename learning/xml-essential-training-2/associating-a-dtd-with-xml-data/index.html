@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associating a DTD with XML data - XML Essential Training
+ — Suyambu</title>
+    <meta property="og:title" content="Associating a DTD with XML data - XML Essential Training
+">
+    <meta property="og:description" content="Get started with Extensible Markup Language (XML). Learn about the basic rules of XML, explore its syntax, and review more advanced topics such as styling your XML with CSS.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/xml-essential-training-2/associating-a-dtd-with-xml-data">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/D4D0DAQERy3NbaTNJ0w/learning-public-crop_675_1200/0/1685579758517?e=2147483647&v=beta&t=CFKIDPfDXbSA8jKAIdLgs4eZH9Y-PZ54gfyrfB7P0Ag">
+    <meta property="og:site_name" content="Associating a DTD with XML data - XML Essential Training
+">
+    <meta name="description" content="Get started with Extensible Markup Language (XML). Learn about the basic rules of XML, explore its syntax, and review more advanced topics such as styling your XML with CSS.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/xml-essential-training-2/associating-a-dtd-with-xml-data">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="/static/learning/css/ckin.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/xml-essential-training-2"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <video poster="https://media.licdn.com/dms/image/D4D0DAQERy3NbaTNJ0w/learning-public-crop_675_1200/0/1685579758517?e=2147483647&v=beta&t=CFKIDPfDXbSA8jKAIdLgs4eZH9Y-PZ54gfyrfB7P0Ag" src="https://unpkg.com/coursedio-gniniart-gniniart-laitnesse-lmx-lmxatad-lmx-htiw-dtd-a-gnitaicossa@1.0.1/video.mp4" data-overlay="2" data-title="Associating a DTD with XML data" data-ckin="default">
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-gniniart-gniniart-laitnesse-lmx-excercise@1.0.1/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/xml-essential-training-2/what-is-xml-schema" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Associating a DTD with XML data</h1>
+        <p class="author">with Joe Marini</p>
+        <p class="description">Get started with Extensible Markup Language (XML). Learn about the basic rules of XML, explore its syntax, and review more advanced topics such as styling your XML with CSS.</p>
+        <br><br>
+
+        <a href="/learning/xml-essential-training-2/welcome" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Welcome</p>
+                <span>1m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/what-you-should-know" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What you should know</p>
+                <span>1m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/exercise-files" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exercise files</p>
+                <span>1m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/setting-up-the-dev-tools" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Setting up the dev tools</p>
+                <span>1m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/what-is-xml" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is XML?</p>
+                <span>3m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/xml-technologies" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>XML technologies</p>
+                <span>2m 8s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/describing-data-with-xml" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Describing data with XML</p>
+                <span>2m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/advantages-and-drawbacks-of-xml" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Advantages and drawbacks of XML</p>
+                <span>3m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/real-world-examples-of-xml" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Real world examples of XML</p>
+                <span>4m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/types-of-xml-content" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Types of XML content</p>
+                <span>7m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/proper-xml-syntax" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Proper XML syntax</p>
+                <span>2m 16s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/valid-documents" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Valid documents</p>
+                <span>1m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/xml-namespaces" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>XML namespaces</p>
+                <span>3m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/our-first-xml-file" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Our first XML file</p>
+                <span>2m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/xml-and-css-styles" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>XML and CSS styles</p>
+                <span>3m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/styling-xml-tags" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Styling XML tags</p>
+                <span>3m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/advanced-css-with-xml" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Advanced CSS with XML</p>
+                <span>3m 22s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/quick-intro-to-the-dom" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Quick intro to the DOM</p>
+                <span>5m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/discovering-document-content" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Discovering document content</p>
+                <span>3m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/creating-document-content" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Creating document content</p>
+                <span>7m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/bringing-it-all-together" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Bringing it all together</p>
+                <span>8m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/what-is-xpath" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is XPath?</p>
+                <span>5m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/taking-xpath-for-a-spin" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Taking XPath for a spin</p>
+                <span>5m 32s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/what-is-xslt" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is XSLT?</p>
+                <span>3m 27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/using-xslt-with-xml" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using XSLT with XML</p>
+                <span>3m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/simple-xslt" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Simple XSLT</p>
+                <span>4m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/xslt-and-css" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>XSLT and CSS</p>
+                <span>1m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/repeating-items" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Repeating items</p>
+                <span>5m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/conditional-logic" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Conditional logic</p>
+                <span>7m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/sorting-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Sorting data</p>
+                <span>2m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/what-is-a-dtd" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is a DTD?</p>
+                <span>1m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/dtd-syntax" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>DTD syntax</p>
+                <span>1m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/declaring-elements" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Declaring elements</p>
+                <span>4m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/declaring-attributes" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Declaring attributes</p>
+                <span>3m 53s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/building-a-dtd-for-a-business-card" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Building a DTD for a business card</p>
+                <span>5m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/associating-a-dtd-with-xml-data" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Associating a DTD with XML data</p>
+                <span>2m 8s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/what-is-xml-schema" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is XML schema?</p>
+                <span>2m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/anatomy-of-a-schema" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Anatomy of a schema</p>
+                <span>1m 19s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/declaring-elements" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Declaring elements</p>
+                <span>10m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/declaring-attributes" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Declaring attributes</p>
+                <span>3m 34s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/building-a-schema-for-a-business-card" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Building a schema for a business card</p>
+                <span>7m 37s</span>
+            </div>
+        </a>
+
+        <a href="/learning/xml-essential-training-2/next-steps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps</p>
+                <span>1m 4s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="/static/learning/js/ckin.js"></script>
+
+
+</body>
+</html>
