@@ -1,3 +1,4 @@
+document.addEventListener('contextmenu', event => event.preventDefault());
 document.addEventListener('DOMContentLoaded', function () {
     let fakeAd = document.createElement("div");
     fakeAd.className = "textads banner-ads banner_ads ad-unit ad-zone ad-space adsbox"
@@ -7,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     setTimeout(function() {
-        let x_width = fakeAd.offsetHeight;
-        if (x_width) {
+        let height = fakeAd.offsetHeight;
+        if (height) {
             document.querySelector("#blocker-message").style.display = "none";
         } else {
             document.querySelector("#blocker-message").style.display = "flex";
         }
-    }, 1000)
+    }, 3000)
 })

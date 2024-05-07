@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Machine Learning Studio - Azure AI: The Big Picture
+ — Suyambu</title>
+    <meta property="og:title" content="Azure Machine Learning Studio - Azure AI: The Big Picture
+">
+    <meta property="og:description" content="Get a high-level look at what’s contained in the Azure AI toolset.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/azure-ai-the-big-picture/azure-machine-learning-studio/">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/D560DAQEIC-o2PtCdeA/learning-public-crop_675_1200/0/1698446523363?e=2147483647&v=beta&t=O7roAkwV8w5DUUed2z5XSw7RTazb2UjUQhPfPBdgjgE">
+    <meta property="og:site_name" content="Azure Machine Learning Studio - Azure AI: The Big Picture
+">
+    <meta name="description" content="Get a high-level look at what’s contained in the Azure AI toolset.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/azure-ai-the-big-picture/azure-machine-learning-studio/">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="https://vjs.zencdn.net/8.10.0/video-js.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+        .vjs-theme-forest .vjs-control-bar {
+            background: rgba(0,0,0,0.5);
+            font-size: 0.9rem;
+            padding: 10px;
+            margin-bottom: 0;
+            height: 4em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/azure-ai-the-big-picture"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <!-- <video poster="https://media.licdn.com/dms/image/D560DAQEIC-o2PtCdeA/learning-public-crop_675_1200/0/1698446523363?e=2147483647&v=beta&t=O7roAkwV8w5DUUed2z5XSw7RTazb2UjUQhPfPBdgjgE" src="https://unpkg.com/coursedio-21erutcip-gib-eht-ia-eruza-6oiduts-gninrael-enihcam-eruza@1.0.2/video.mp4" data-overlay="2" data-title="Azure Machine Learning Studio" data-ckin="default">
+        </video> -->
+
+        <video
+            id="my-video"
+            class="video-js vjs-16-9 vjs-theme-forest"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+            poster="https://media.licdn.com/dms/image/D560DAQEIC-o2PtCdeA/learning-public-crop_675_1200/0/1698446523363?e=2147483647&v=beta&t=O7roAkwV8w5DUUed2z5XSw7RTazb2UjUQhPfPBdgjgE"
+            data-setup="{}" src="https://unpkg.com/coursedio-21erutcip-gib-eht-ia-eruza-6oiduts-gninrael-enihcam-eruza@1.0.2/video.mp4">
+            <track kind="captions" src="https://unpkg.com/coursedio-21erutcip-gib-eht-ia-eruza-6oiduts-gninrael-enihcam-eruza@1.0.2/subtitle.srt" srclang="en" label="English" default>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div class="controls">
+
+
+        <a href="/learning/azure-ai-the-big-picture/build-better-prompts-with-prompt-flow/" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Azure Machine Learning Studio</h1>
+        <p class="author">with Walt Ritscher</p>
+        <p class="description">Get a high-level look at what’s contained in the Azure AI toolset.</p>
+        <br><br>
+
+        <a href="/learning/azure-ai-the-big-picture/azure-ai-from-a-10000-foot-view/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Azure AI from a 10,000-foot view</p>
+                <span>1m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/get-the-most-out-of-this-course/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Get the most out of this course</p>
+                <span>1m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/an-overview-of-azure-ai/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>An overview of Azure AI</p>
+                <span>8m 56s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/the-azure-ai-service-names/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The Azure AI service names</p>
+                <span>2m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/a-short-tour-of-the-azure-ai-services/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>A short tour of the Azure AI services</p>
+                <span>6m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/the-basics-of-azure-machine-learning/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The basics of Azure machine learning</p>
+                <span>5m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/azure-machine-learning-studio/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Azure Machine Learning Studio</p>
+                <span>4m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/build-better-prompts-with-prompt-flow/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Build better prompts with prompt flow</p>
+                <span>5m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/the-basics-of-azure-openai-service/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The basics of Azure OpenAI Service</p>
+                <span>2m 37s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/explore-the-azure-ai-studio/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Explore the Azure AI Studio</p>
+                <span>1m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/create-an-ongoing-chat-with-openais-gpt/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Create an ongoing chat with OpenAI’s GPT</p>
+                <span>3m 37s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/simple-text-answers-with-azure-completions/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Simple text answers with Azure completions</p>
+                <span>1m 44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/generative-ai-with-dall-e/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Generative AI with DALL-E</p>
+                <span>1m 32s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/the-azure-studios/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The Azure Studios</p>
+                <span>1m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/image-analysis-with-vision-studio/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Image analysis with Vision Studio</p>
+                <span>4m 56s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/language-analysis-with-language-studio/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Language analysis with Language Studio</p>
+                <span>2m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/speech-analysis-and-audio-creation-with-speech-studio/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Speech analysis  and audio creation with Speech Studio</p>
+                <span>3m 38s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/azure-bot-service/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Azure Bot Service</p>
+                <span>5m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/azure-document-intelligence/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Azure Document Intelligence</p>
+                <span>5m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/immersive-reader/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Immersive Reader</p>
+                <span>4m 57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/metrics-advisor/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Metrics Advisor</p>
+                <span>3m</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/cognitive-search/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Cognitive Search</p>
+                <span>5m 31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/microsoft-genomics/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Microsoft Genomics</p>
+                <span>3m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/bonsai-platform/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Bonsai platform</p>
+                <span>3m 21s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/azure-ai-content-safety/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Azure AI Content Safety</p>
+                <span>3m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/azure-ai-the-big-picture/continue-your-journey/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Continue your journey</p>
+                <span>1m 7s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        document.querySelector("video").play();
+    };
+</script>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search/?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search/?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search/?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search/?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search/?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search/?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search/?q=Security">Security</a></li>
+                        <li><a href="/learning/search/?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search/?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search/?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search/?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search/?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search/?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search/?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search/?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search/?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search/?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search/?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search/?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search/?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search/?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search/?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search/?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search/?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search/?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search/?q=React">React</a></li>
+                        <li><a href="/learning/search/?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+
+</body>
+</html>
