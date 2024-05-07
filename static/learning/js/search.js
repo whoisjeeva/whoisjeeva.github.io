@@ -8,16 +8,16 @@ function insertCourse(course) {
     let div = document.createElement("div")
     div.setAttribute("class", "course-item card")
     div.innerHTML = `
-    <a href="/learning/${course.slug}" class="image">
+    <a href="/learning/${course.slug}/" class="image">
         <img src="${ course.image }" alt="${ course.title }">
     </a>
     <div class="info">
         <h3>${ course.title }</h3>
         <br>
         <div class="controls">
-            <a href="/learning/${ course.slug }" class="btn btn-primary">View Course</a>
+            <a href="/learning/${ course.slug }/" class="btn btn-primary">View Course</a>
             <span class="spacer"></span>
-            <a href="/learning/${ course.slug }" class="material-icons">play_arrow</a>
+            <a href="/learning/${ course.slug }/" class="material-icons">play_arrow</a>
         </div>
     </div>
     `
