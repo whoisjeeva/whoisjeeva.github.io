@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
     fakeAd.style.height = "1px"
 
     document.body.appendChild(fakeAd)
-    let x_width = fakeAd.offsetHeight;
 
 
     setTimeout(function() {
+        let x_width = fakeAd.offsetHeight;
         if (x_width) {
             document.querySelector("#blocker-message").style.display = "none";
         } else {
