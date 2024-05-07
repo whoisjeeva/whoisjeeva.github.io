@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution: Placing a Binaryville character order - GPT-4 Foundations: Building AI-Powered Apps
+ — Suyambu</title>
+    <meta property="og:title" content="Solution: Placing a Binaryville character order - GPT-4 Foundations: Building AI-Powered Apps
+">
+    <meta property="og:description" content="Learn the basics of prompting and connecting prompts together to build a small application with GPT-4.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/gpt-4-foundations-building-ai-powered-apps/solution-placing-a-binaryville-character-order">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/D560DAQG2xe3Ez5Crog/learning-public-crop_675_1200/0/1686932276011?e=2147483647&v=beta&t=sOX6YwSQgEY6j1H5A8ELsGY7NbhJobue9Y_9ApHkJW0">
+    <meta property="og:site_name" content="Solution: Placing a Binaryville character order - GPT-4 Foundations: Building AI-Powered Apps
+">
+    <meta name="description" content="Learn the basics of prompting and connecting prompts together to build a small application with GPT-4.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/gpt-4-foundations-building-ai-powered-apps/solution-placing-a-binaryville-character-order">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="https://vjs.zencdn.net/8.10.0/video-js.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+        .vjs-theme-forest .vjs-control-bar {
+            background: rgba(0,0,0,0.5);
+            font-size: 0.9rem;
+            padding: 10px;
+            margin-bottom: 0;
+            height: 4em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/gpt-4-foundations-building-ai-powered-apps"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <!-- <video poster="https://media.licdn.com/dms/image/D560DAQG2xe3Ez5Crog/learning-public-crop_675_1200/0/1686932276011?e=2147483647&v=beta&t=sOX6YwSQgEY6j1H5A8ELsGY7NbhJobue9Y_9ApHkJW0" src="https://unpkg.com/coursedio-7sppa-derewop-ia-gnidliub-snoitadnuof--tpg-11redro-retcarahc-ellivyranib-a-gnicalp-noitulos@1.0.2/video.mp4" data-overlay="2" data-title="Solution: Placing a Binaryville character order" data-ckin="default">
+        </video> -->
+
+        <video
+            id="my-video"
+            class="video-js vjs-16-9 vjs-theme-forest"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+            poster="https://media.licdn.com/dms/image/D560DAQG2xe3Ez5Crog/learning-public-crop_675_1200/0/1686932276011?e=2147483647&v=beta&t=sOX6YwSQgEY6j1H5A8ELsGY7NbhJobue9Y_9ApHkJW0"
+            data-setup="{}" src="https://unpkg.com/coursedio-7sppa-derewop-ia-gnidliub-snoitadnuof--tpg-11redro-retcarahc-ellivyranib-a-gnicalp-noitulos@1.0.2/video.mp4">
+            <track kind="captions" src="https://unpkg.com/coursedio-7sppa-derewop-ia-gnidliub-snoitadnuof--tpg-11redro-retcarahc-ellivyranib-a-gnicalp-noitulos@1.0.2/subtitle.srt" srclang="en" label="English" default>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-7sppa-derewop-ia-gnidliub-snoitadnuof--tpg-excercise@1.0.2/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/configuring-the-system-prompt" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Solution: Placing a Binaryville character order</h1>
+        <p class="author">with Denys Linkov</p>
+        <p class="description">Learn the basics of prompting and connecting prompts together to build a small application with GPT-4.</p>
+        <br><br>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/welcome-to-gpt-4-foundations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Welcome to GPT-4 foundations</p>
+                <span>45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/the-openai-playground" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The OpenAI playground</p>
+                <span>2m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/what-are-large-language-models-llms" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What are large language models (LLMs)?</p>
+                <span>4m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/introduction-to-prompting" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Introduction to prompting</p>
+                <span>2m 44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/tailoring-your-own-prompts" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Tailoring your own prompts</p>
+                <span>2m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/challenge-generating-a-superpower-for-bubbles" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Generating a superpower for Bubbles</p>
+                <span>59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/solution-generating-a-superpower-for-bubbles" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Generating a superpower for Bubbles</p>
+                <span>57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/summarization-and-classification-prompts" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Summarization and classification prompts</p>
+                <span>4m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/giving-gpt-4-a-persona" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Giving GPT-4 a persona</p>
+                <span>3m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/formatting-your-prompts" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Formatting your prompts</p>
+                <span>2m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/challenge-placing-a-binaryville-character-order" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Placing a Binaryville character order</p>
+                <span>43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/solution-placing-a-binaryville-character-order" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Placing a Binaryville character order</p>
+                <span>1m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/configuring-the-system-prompt" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Configuring the system prompt</p>
+                <span>2m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/adding-context-for-a-more-powerful-application" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Adding context for a more powerful application</p>
+                <span>2m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/getting-started-with-prompt-chaining" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Getting started with prompt chaining</p>
+                <span>5m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/challenge-remembering-your-order" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: Remembering your order</p>
+                <span>51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/solution-remembering-your-order" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: Remembering your order</p>
+                <span>2m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/showing-a-no-code-chatbot" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Showing a no-code chatbot</p>
+                <span>2m 22s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/building-a-no-code-chatbot" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Building a no-code chatbot</p>
+                <span>5m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/customizing-your-chatbot" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Customizing your chatbot</p>
+                <span>5m 9s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/prompt-chaining-for-your-chatbot" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Prompt chaining for your chatbot</p>
+                <span>5m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/challenge-a-bigstarcollectibles-chatbot" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Challenge: A BigStarCollectibles chatbot</p>
+                <span>1m 21s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/solution-a-bigstarcollectibles-chatbot" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Solution: A BigStarCollectibles chatbot</p>
+                <span>2m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/gpt-4-foundations-building-ai-powered-apps/next-steps" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps</p>
+                <span>29s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        document.querySelector("video").play();
+    };
+</script>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+
+</body>
+</html>

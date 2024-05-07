@@ -7,22 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let x_width = fakeAd.offsetHeight;
 
 
-    if (x_width) {
-        document.querySelector("#blocker-message").style.display = "none";
-    } else {
-        document.querySelector("#blocker-message").style.display = "flex";
-    }
-
-    // if (location.hostname !== "localhost") {
-    //     setTimeout(function () {
-    //         fetch('https://www3.doubleclick.net', {
-    //             method: "HEAD",
-    //             mode: "no-cors",
-    //             cache: "no-store",
-    //         }).catch(() => {
-    //             document.querySelector("#message-dialog").style.display = "flex";
-    //             document.querySelector("#blocker-message").style.display = "flex";
-    //         });
-    //     }, 1000);
-    // }
+    setTimeout(function() {
+        if (x_width) {
+            document.querySelector("#blocker-message").style.display = "none";
+        } else {
+            document.querySelector("#blocker-message").style.display = "flex";
+        }
+    }, 1000)
 })

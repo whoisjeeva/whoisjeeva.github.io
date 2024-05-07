@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running SVD and SVD++ on MovieLens - Building Recommender Systems with Machine Learning and AI
+ — Suyambu</title>
+    <meta property="og:title" content="Running SVD and SVD++ on MovieLens - Building Recommender Systems with Machine Learning and AI
+">
+    <meta property="og:description" content="Learn how to build recommender systems and help people discover new products and content with deep learning, neural networks, and machine learning recommendations.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/building-recommender-systems-with-machine-learning-and-ai/running-svd-and-svd-on-movielens">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4E0DAQHf7cxEjUaKww/learning-public-crop_675_1200/0/1567116025430?e=2147483647&v=beta&t=dkRkNOe7Hv9EFCFdNg1RkfLk1kkGfyN_VKhSyJfhtcE">
+    <meta property="og:site_name" content="Running SVD and SVD++ on MovieLens - Building Recommender Systems with Machine Learning and AI
+">
+    <meta name="description" content="Learn how to build recommender systems and help people discover new products and content with deep learning, neural networks, and machine learning recommendations.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/building-recommender-systems-with-machine-learning-and-ai/running-svd-and-svd-on-movielens">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="https://vjs.zencdn.net/8.10.0/video-js.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+        .vjs-theme-forest .vjs-control-bar {
+            background: rgba(0,0,0,0.5);
+            font-size: 0.9rem;
+            padding: 10px;
+            margin-bottom: 0;
+            height: 4em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/building-recommender-systems-with-machine-learning-and-ai"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <!-- <video poster="https://media.licdn.com/dms/image/C4E0DAQHf7cxEjUaKww/learning-public-crop_675_1200/0/1567116025430?e=2147483647&v=beta&t=dkRkNOe7Hv9EFCFdNg1RkfLk1kkGfyN_VKhSyJfhtcE" src="https://unpkg.com/coursedio-01ia-dna-gninrael-enihcam-htiw-smetsys-rednemmocer-gnidliub-14sneleivom-no-sulp-sulp-dvs-dna-dvs-gninnur@1.0.2/video.mp4" data-overlay="2" data-title="Running SVD and SVD++ on MovieLens" data-ckin="default">
+        </video> -->
+
+        <video
+            id="my-video"
+            class="video-js vjs-16-9 vjs-theme-forest"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+            poster="https://media.licdn.com/dms/image/C4E0DAQHf7cxEjUaKww/learning-public-crop_675_1200/0/1567116025430?e=2147483647&v=beta&t=dkRkNOe7Hv9EFCFdNg1RkfLk1kkGfyN_VKhSyJfhtcE"
+            data-setup="{}" src="https://unpkg.com/coursedio-01ia-dna-gninrael-enihcam-htiw-smetsys-rednemmocer-gnidliub-14sneleivom-no-sulp-sulp-dvs-dna-dvs-gninnur@1.0.2/video.mp4">
+            <track kind="captions" src="https://unpkg.com/coursedio-01ia-dna-gninrael-enihcam-htiw-smetsys-rednemmocer-gnidliub-14sneleivom-no-sulp-sulp-dvs-dna-dvs-gninnur@1.0.2/subtitle.srt" srclang="en" label="English" default>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-01ia-dna-gninrael-enihcam-htiw-smetsys-rednemmocer-gnidliub-excercise@1.0.2/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/improving-on-svd" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Running SVD and SVD++ on MovieLens</h1>
+        <p class="author">with Frank Kane</p>
+        <p class="description">Learn how to build recommender systems and help people discover new products and content with deep learning, neural networks, and machine learning recommendations.</p>
+        <br><br>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/install-anaconda-review-course-materials-and-create-movie-recommendations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Install Anaconda, review course materials, and create movie recommendations</p>
+                <span>9m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/course-roadmap" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Course roadmap</p>
+                <span>3m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/understanding-you-through-implicit-and-explicit-ratings" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding you through implicit and explicit ratings</p>
+                <span>4m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/top-n-recommender-architecture" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Top-N recommender architecture</p>
+                <span>5m 53s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/review-the-basics-of-recommender-systems" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Review the basics of recommender systems</p>
+                <span>4m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/data-structures-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Data structures in Python</p>
+                <span>5m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/functions-in-python" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Functions in Python</p>
+                <span>2m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/booleans-loops-and-a-hands-on-challenge" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Booleans, loops, and a hands-on challenge</p>
+                <span>3m 52s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/train-test-and-cross-validation" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Train/test and cross-validation</p>
+                <span>3m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/accuracy-metrics-rmse-and-mae" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Accuracy metrics (RMSE and MAE)</p>
+                <span>4m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/top-n-hit-rate-many-ways" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Top-N hit rate: Many ways</p>
+                <span>4m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/coverage-diversity-and-novelty" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Coverage, diversity, and novelty</p>
+                <span>4m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/churn-responsiveness-and-a-b-tests" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Churn, responsiveness, and A/B tests</p>
+                <span>5m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/review-ways-to-measure-your-recommender" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Review ways to measure your recommender</p>
+                <span>2m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/walkthrough-of-recommendermetrics-py" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Walkthrough of RecommenderMetrics.py</p>
+                <span>6m 53s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/walkthrough-of-testmetrics-py" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Walkthrough of TestMetrics.py</p>
+                <span>5m 8s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/measure-the-performance-of-svd-recommendations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Measure the performance of SVD recommendations</p>
+                <span>2m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/our-recommender-engine-architecture" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Our recommender engine architecture</p>
+                <span>7m 27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/recommender-engine-walkthrough-part-1" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Recommender engine walkthrough, part 1</p>
+                <span>3m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/recommender-engine-walkthrough-part-2" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Recommender engine walkthrough, part 2</p>
+                <span>3m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/review-the-results-of-our-algorithm-evaluation" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Review the results of our algorithm evaluation</p>
+                <span>3m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/content-based-recommendations-and-the-cosine-similarity-metric" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Content-based recommendations and the cosine similarity metric</p>
+                <span>8m 58s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/k-nearest-neighbors-knn-and-content-recs" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>K-nearest neighbors (KNN) and content recs</p>
+                <span>3m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/producing-and-evaluating-content-based-movie-recommendations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Producing and evaluating content-based movie recommendations</p>
+                <span>5m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/bleeding-edge-alert-mise-en-scene-recommendations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Bleeding edge alert: Mise-en-scene recommendations</p>
+                <span>4m 31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/dive-deeper-into-content-based-recommendations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Dive deeper into content-based recommendations</p>
+                <span>4m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/measuring-similarity-and-sparsity" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Measuring similarity and sparsity</p>
+                <span>4m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/similarity-metrics" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Similarity metrics</p>
+                <span>8m 32s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/user-based-collaborative-filtering" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>User-based collaborative filtering</p>
+                <span>7m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/user-based-collaborative-filtering-hands-on" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>User-based collaborative filtering: Hands-on</p>
+                <span>4m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/item-based-collaborative-filtering" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Item-based collaborative filtering</p>
+                <span>4m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/item-based-collaborative-filtering-hands-on" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Item-based collaborative filtering: Hands-on</p>
+                <span>2m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/tuning-collaborative-filtering-algorithms" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Tuning collaborative filtering algorithms</p>
+                <span>3m 31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/evaluating-collaborative-filtering-systems-offline" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Evaluating collaborative filtering systems offline</p>
+                <span>1m 28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/measure-the-hit-rate-of-item-based-collaborative-filtering" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Measure the hit rate of item-based collaborative filtering</p>
+                <span>2m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/knn-recommenders" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>KNN recommenders</p>
+                <span>4m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/running-user-and-item-based-knn-on-movielens" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Running user- and item-based KNN on MovieLens</p>
+                <span>2m 26s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/experiment-with-different-knn-parameters" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Experiment with different KNN parameters</p>
+                <span>4m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/bleeding-edge-alert-translation-based-recommendations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Bleeding edge alert: Translation-based recommendations</p>
+                <span>2m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/principal-component-analysis-pca" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Principal component analysis (PCA)</p>
+                <span>6m 31s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/singular-value-decomposition-svd" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Singular value decomposition (SVD)</p>
+                <span>7m 6s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/running-svd-and-svd-on-movielens" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Running SVD and SVD++ on MovieLens</p>
+                <span>3m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/improving-on-svd" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Improving on SVD</p>
+                <span>4m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/tune-the-hyperparameters-on-svd" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Tune the hyperparameters on SVD</p>
+                <span>1m 58s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/bleeding-edge-alert-sparse-linear-methods-slim" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Bleeding edge alert: Sparse linear methods (SLIM)</p>
+                <span>3m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/deep-learning-introduction" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Deep learning introduction</p>
+                <span>1m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/deep-learning-prerequisites" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Deep learning prerequisites</p>
+                <span>8m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/history-of-artificial-neural-networks" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>History of artificial neural networks</p>
+                <span>10m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/playing-with-tensorflow" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Playing with TensorFlow</p>
+                <span>12m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/training-neural-networks" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Training neural networks</p>
+                <span>5m 47s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/tuning-neural-networks" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Tuning neural networks</p>
+                <span>3m 52s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/introduction-to-tensorflow" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Introduction to TensorFlow</p>
+                <span>11m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/handwriting-recognition-with-tensorflow-part-1" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Handwriting recognition with TensorFlow, part 1</p>
+                <span>13m 18s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/handwriting-recognition-with-tensorflow-part-2" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Handwriting recognition with TensorFlow, part 2</p>
+                <span>12m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/introduction-to-keras" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Introduction to Keras</p>
+                <span>2m 48s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/handwriting-recognition-with-keras" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Handwriting recognition with Keras</p>
+                <span>9m 52s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/classifier-patterns-with-keras" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Classifier patterns with Keras</p>
+                <span>3m 58s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/predict-political-parties-of-politicians-with-keras" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Predict political parties of politicians with Keras</p>
+                <span>9m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/intro-to-convolutional-neural-networks-cnns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Intro to convolutional neural networks (CNNs)</p>
+                <span>8m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/cnn-architectures" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>CNN architectures</p>
+                <span>2m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/handwriting-recognition-with-cnns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Handwriting recognition with CNNs</p>
+                <span>8m 38s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/intro-to-recurrent-neural-networks-rnns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Intro to recurrent neural networks (RNNs)</p>
+                <span>7m 38s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/training-recurrent-neural-networks" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Training recurrent neural networks</p>
+                <span>3m 21s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/sentiment-analysis-of-movie-reviews-using-rnns-and-keras" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Sentiment analysis of movie reviews using RNNs and Keras</p>
+                <span>11m 1s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/intro-to-deep-learning-for-recommenders" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Intro to deep learning for recommenders</p>
+                <span>2m 19s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/restricted-boltzmann-machines-rbms" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Restricted Boltzmann machines (RBMs)</p>
+                <span>8m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/recommendations-with-rbms-part-1" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Recommendations with RBMs, part 1</p>
+                <span>12m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/recommendations-with-rbms-part-2" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Recommendations with RBMs, part 2</p>
+                <span>7m 11s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/evaluating-the-rbm-recommender" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Evaluating the RBM recommender</p>
+                <span>3m 44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/tuning-restricted-boltzmann-machines" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Tuning restricted Boltzmann machines</p>
+                <span>1m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/exercise-results-tuning-a-rbm-recommender" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exercise results: Tuning a RBM recommender</p>
+                <span>1m 15s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/auto-encoders-for-recommendations-deep-learning-for-recs" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Auto-encoders for recommendations: Deep learning for recs</p>
+                <span>4m 27s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/recommendations-with-deep-neural-networks" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Recommendations with deep neural networks</p>
+                <span>7m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/clickstream-recommendations-with-rnns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Clickstream recommendations with RNNs</p>
+                <span>7m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/get-gru4rec-working-on-your-desktop" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Get GRU4Rec working on your desktop</p>
+                <span>2m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/exercise-results-gru4rec-in-action" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exercise results: GRU4Rec in action</p>
+                <span>7m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/bleeding-edge-alert-deep-factorization-machines" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Bleeding edge alert: Deep factorization machines</p>
+                <span>5m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/more-emerging-tech-to-watch" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>More emerging tech to watch</p>
+                <span>5m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/introduction-and-installation-of-apache-spark" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Introduction and installation of Apache Spark</p>
+                <span>5m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/apache-spark-architecture" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Apache Spark architecture</p>
+                <span>5m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/movie-recommendations-with-spark-matrix-factorization-and-als" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Movie recommendations with Spark, matrix factorization, and ALS</p>
+                <span>6m 2s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/recommendations-from-20-million-ratings-with-spark" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Recommendations from 20 million ratings with Spark</p>
+                <span>4m 57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/amazon-dsstne" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Amazon DSSTNE</p>
+                <span>4m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/dsstne-in-action" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>DSSTNE in action</p>
+                <span>9m 25s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/scaling-up-dsstne" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Scaling up DSSTNE</p>
+                <span>2m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/aws-sagemaker-and-factorization-machines" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>AWS SageMaker and factorization machines</p>
+                <span>4m 24s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/sagemaker-in-action-factorization-machines-on-one-million-ratings-in-the-cloud" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>SageMaker in action: Factorization machines on one million ratings, in the cloud</p>
+                <span>7m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/the-cold-start-problem-and-solutions" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The cold start problem (and solutions)</p>
+                <span>6m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/implement-random-exploration" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Implement random exploration</p>
+                <span>54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/exercise-solution-random-exploration" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exercise solution: Random exploration</p>
+                <span>2m 18s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/stoplists" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Stoplists</p>
+                <span>4m 48s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/implement-a-stoplist" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Implement a stoplist</p>
+                <span>32s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/exercise-solution-implement-a-stoplist" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exercise solution: Implement a stoplist</p>
+                <span>2m 22s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/filter-bubbles-trust-and-outliers" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Filter bubbles, trust, and outliers</p>
+                <span>5m 39s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/identify-and-eliminate-outlier-users" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Identify and eliminate outlier users</p>
+                <span>44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/exercise-solution-outlier-removal" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exercise solution: Outlier removal</p>
+                <span>4m</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/fraud-the-perils-of-clickstream-and-international-concerns" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Fraud, the perils of clickstream, and international concerns</p>
+                <span>4m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/temporal-effects-and-value-aware-recommendations" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Temporal effects and value-aware recommendations</p>
+                <span>3m 30s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/case-study-youtube-part-1" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Case study: YouTube, part 1</p>
+                <span>3m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/case-study-youtube-part-2" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Case study: YouTube, part 2</p>
+                <span>7m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/case-study-netflix-part-1" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Case study: Netflix, part 1</p>
+                <span>3m 59s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/case-study-netflix-part-2" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Case study: Netflix, part 2</p>
+                <span>3m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/hybrid-recommenders-and-exercise" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Hybrid recommenders and exercise</p>
+                <span>2m 54s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/exercise-solution-hybrid-recommenders" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Exercise solution: Hybrid recommenders</p>
+                <span>4m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/building-recommender-systems-with-machine-learning-and-ai/more-to-explore" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>More to explore</p>
+                <span>2m 31s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        document.querySelector("video").play();
+    };
+</script>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search?q=Security">Security</a></li>
+                        <li><a href="/learning/search?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search?q=React">React</a></li>
+                        <li><a href="/learning/search?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+
+</body>
+</html>
