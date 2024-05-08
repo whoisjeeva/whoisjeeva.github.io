@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to association rules and sequence analysis - Machine Learning and AI Foundations: Clustering and Association
+ — Suyambu</title>
+    <meta property="og:title" content="Intro to association rules and sequence analysis - Machine Learning and AI Foundations: Clustering and Association
+">
+    <meta property="og:description" content="Learn how to use cluster analysis, association rules, and anomaly detection algorithms for unsupervised learning.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/machine-learning-and-ai-foundations-clustering-and-association/intro-to-association-rules-and-sequence-analysis/">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/D4D0DAQESH_ejD_5LfQ/learning-public-crop_675_1200/0/1707244928378?e=2147483647&v=beta&t=9m4pm8T7VpIluEOD4IWsq806KZag5CrQOvxkdXR5C-0">
+    <meta property="og:site_name" content="Intro to association rules and sequence analysis - Machine Learning and AI Foundations: Clustering and Association
+">
+    <meta name="description" content="Learn how to use cluster analysis, association rules, and anomaly detection algorithms for unsupervised learning.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/machine-learning-and-ai-foundations-clustering-and-association/intro-to-association-rules-and-sequence-analysis/">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="https://vjs.zencdn.net/8.10.0/video-js.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+        .vjs-theme-forest .vjs-control-bar {
+            background: rgba(0,0,0,0.5);
+            font-size: 0.9rem;
+            padding: 10px;
+            margin-bottom: 0;
+            height: 4em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <!-- <video poster="https://media.licdn.com/dms/image/D4D0DAQESH_ejD_5LfQ/learning-public-crop_675_1200/0/1707244928378?e=2147483647&v=beta&t=9m4pm8T7VpIluEOD4IWsq806KZag5CrQOvxkdXR5C-0" src="https://unpkg.com/coursedio-12noitaicossa-dna-gniretsulc-snoitadnuof-ia-dna-gninrael-enihcam-73sisylana-ecneuqes-dna-selur-noitaicossa-ot-ortni@1.0.2/video.mp4" data-overlay="2" data-title="Intro to association rules and sequence analysis" data-ckin="default">
+        </video> -->
+
+        <video
+            id="my-video"
+            class="video-js vjs-16-9 vjs-theme-forest"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+            poster="https://media.licdn.com/dms/image/D4D0DAQESH_ejD_5LfQ/learning-public-crop_675_1200/0/1707244928378?e=2147483647&v=beta&t=9m4pm8T7VpIluEOD4IWsq806KZag5CrQOvxkdXR5C-0"
+            data-setup="{}" src="https://unpkg.com/coursedio-12noitaicossa-dna-gniretsulc-snoitadnuof-ia-dna-gninrael-enihcam-73sisylana-ecneuqes-dna-selur-noitaicossa-ot-ortni@1.0.2/video.mp4">
+            <track kind="captions" src="https://unpkg.com/coursedio-12noitaicossa-dna-gniretsulc-snoitadnuof-ia-dna-gninrael-enihcam-73sisylana-ecneuqes-dna-selur-noitaicossa-ot-ortni@1.0.2/subtitle.srt" srclang="en" label="English" default>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <a href="https://unpkg.com/coursedio-12noitaicossa-dna-gniretsulc-snoitadnuof-ia-dna-gninrael-enihcam-excercise@1.0.2/exercise.zip" class="btn btn-primary" target="_blank"><span
+                class="material-icons">file_download</span> Exercise Files</a>
+
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/running-association-rules/" class="btn">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Intro to association rules and sequence analysis</h1>
+        <p class="author">with Keith McCormick</p>
+        <p class="description">Learn how to use cluster analysis, association rules, and anomaly detection algorithms for unsupervised learning.</p>
+        <br><br>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/clustering-and-association/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Clustering and association</p>
+                <span>47s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/what-you-should-know/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What you should know</p>
+                <span>2m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/using-the-exercise-files/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using the exercise files</p>
+                <span>1m 37s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/what-is-unsupervised-machine-learning/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is unsupervised machine learning?</p>
+                <span>6m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/looking-at-the-data-with-a-2d-scatter-plot/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Looking at the data with a 2D scatter plot</p>
+                <span>5m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/understanding-hierarchical-cluster-analysis/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Understanding hierarchical cluster analysis</p>
+                <span>5m 55s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/running-hierarchical-cluster-analysis/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Running hierarchical cluster analysis</p>
+                <span>3m 58s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/interpreting-a-dendrogram/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Interpreting a dendrogram</p>
+                <span>4m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/methods-for-measuring-distance/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Methods for measuring distance</p>
+                <span>5m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/what-is-k-nearest-neighbors/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What is k-nearest neighbors?</p>
+                <span>5m 5s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/how-does-k-means-work/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How does k-means work?</p>
+                <span>2m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/which-variables-should-be-used-with-k-means/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Which variables should be used with k-means?</p>
+                <span>2m 46s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/interpreting-a-box-plot/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Interpreting a box plot</p>
+                <span>6m 49s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/running-a-k-means-cluster-analysis/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Running a k-means cluster analysis</p>
+                <span>3m 28s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/interpreting-cluster-analysis-output/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Interpreting cluster analysis output</p>
+                <span>5m 42s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/what-does-silhouette-mean/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What does silhouette mean?</p>
+                <span>2m 20s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/which-cases-should-be-used-with-k-means/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Which cases should be used with k-means?</p>
+                <span>4m 44s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/finding-optimum-value-for-k-k-3/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Finding optimum value for k: k = 3</p>
+                <span>5m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/finding-optimum-value-for-k-k-4/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Finding optimum value for k: k = 4</p>
+                <span>5m 51s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/finding-optimum-value-for-k-k-5/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Finding optimum value for k: k = 5</p>
+                <span>5m 3s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/what-the-best-solution/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>What the best solution?</p>
+                <span>3m 56s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/summarizing-cluster-means-in-a-table/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Summarizing cluster means in a table</p>
+                <span>5m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/traffic-light-feature-in-excel/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Traffic Light feature in Excel</p>
+                <span>3m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/line-graphs/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Line graphs</p>
+                <span>7m</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/how-does-hdbscan-work/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>How does HDBSCAN work?</p>
+                <span>3m 17s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/an-hdbscan-example/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>An HDBSCAN example</p>
+                <span>4m 34s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/relating-clusters-to-categories-statistically/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Relating clusters to categories statistically</p>
+                <span>6m 23s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/relating-clusters-to-categories-visually/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Relating clusters to categories visually</p>
+                <span>2m 45s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/running-a-multiple-correspondence-analysis/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Running a multiple correspondence analysis</p>
+                <span>6m 10s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/interpreting-a-perceptual-map/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Interpreting a perceptual map</p>
+                <span>3m 14s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/using-cluster-analysis-and-decision-trees-together/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using cluster analysis and decision trees together</p>
+                <span>9m 29s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/a-birch-two-step-example/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>A BIRCH/two-step example</p>
+                <span>5m 12s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/a-self-organizing-map-example/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>A self organizing map example</p>
+                <span>7m 43s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/the-k-1-trick/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>The k = 1 trick</p>
+                <span>7m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/anomaly-detection-algorithms/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Anomaly detection algorithms</p>
+                <span>4m 37s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/using-som-for-anomaly-detection/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Using SOM for anomaly detection</p>
+                <span>7m 7s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/one-class-svm/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>One Class SVM</p>
+                <span>3m 41s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/intro-to-association-rules-and-sequence-analysis/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Intro to association rules and sequence analysis</p>
+                <span>5m 13s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/running-association-rules/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Running association rules</p>
+                <span>5m 57s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/some-association-rules-terminology/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Some association rules terminology</p>
+                <span>3m 33s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/interpreting-association-rules/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Interpreting association rules</p>
+                <span>7m 18s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/putting-association-rules-to-use/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Putting association rules to use</p>
+                <span>5m 4s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/comparing-clustering-and-association-rules/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Comparing clustering and association rules</p>
+                <span>2m 35s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/sequence-detection/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Sequence detection</p>
+                <span>5m 34s</span>
+            </div>
+        </a>
+
+        <a href="/learning/machine-learning-and-ai-foundations-clustering-and-association/next-steps/" class="video-item">
+            <div class="material-icons">play_circle_filled</div>
+            <div class="video-details">
+                <p>Next steps</p>
+                <span>1m 13s</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        document.querySelector("video").play();
+    };
+</script>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search/?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search/?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search/?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search/?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search/?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search/?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search/?q=Security">Security</a></li>
+                        <li><a href="/learning/search/?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search/?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search/?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search/?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search/?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search/?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search/?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search/?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search/?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search/?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search/?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search/?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search/?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search/?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search/?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search/?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search/?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search/?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search/?q=React">React</a></li>
+                        <li><a href="/learning/search/?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+
+</body>
+</html>
