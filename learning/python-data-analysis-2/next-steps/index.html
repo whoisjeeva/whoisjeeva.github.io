@@ -482,9 +482,15 @@
 </div>
 
 <script>
+    let video = document.querySelector("video");
     window.onload = function() {
-        document.querySelector("video").play();
+        video.play();
     };
+
+    video.addEventListener("error", function() {
+        video.load();
+        video.play();
+    })
 </script>
     </section>
 
