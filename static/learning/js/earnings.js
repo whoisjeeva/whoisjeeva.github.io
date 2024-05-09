@@ -16,3 +16,12 @@ for (let el of videoItems) {
         el.parentElement.querySelector(".real-link").click();
     }, false)
 }
+
+
+let excerciseFile = Array.from(document.querySelectorAll(".excercise-file-container a.excercise-file"));
+
+for (let el of videoItems) {
+    el.addEventListener("click", e => {
+        el.parentElement.querySelector(".real-link").click();
+    }, false)
+}
