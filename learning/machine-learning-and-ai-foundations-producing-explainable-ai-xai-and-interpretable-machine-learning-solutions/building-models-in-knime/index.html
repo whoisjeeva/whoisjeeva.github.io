@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7CG6B3HDV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D7CG6B3HDV');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building models in KNIME - Machine Learning and AI Foundations: Producing Explainable AI (XAI) and Interpretable Machine Learning Solutions
+ — Suyambu</title>
+    <meta property="og:title" content="Building models in KNIME - Machine Learning and AI Foundations: Producing Explainable AI (XAI) and Interpretable Machine Learning Solutions
+">
+    <meta property="og:description" content="Learn best practices for how to produce explainable AI and interpretable machine learning solutions.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.suyambu.net/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/building-models-in-knime/">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C560DAQE3BMUZBYYfJA/learning-public-crop_675_1200/0/1644966154242?e=2147483647&v=beta&t=iD9X5MeKFvlZ9R5Q18qaGWvRxvwdi_tBvPIj11VR6Vk">
+    <meta property="og:site_name" content="Building models in KNIME - Machine Learning and AI Foundations: Producing Explainable AI (XAI) and Interpretable Machine Learning Solutions
+">
+    <meta name="description" content="Learn best practices for how to produce explainable AI and interpretable machine learning solutions.
+">
+
+    <link rel="canonical" href="https://www.suyambu.net/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/building-models-in-knime/">
+    <link rel="icon" href="/static/img/logo.svg">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/learning/css/main.css?sd=true">
+
+    <!-- Adsense -->
+    <script data-ad-client="ca-pub-1517962596069817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+        <link rel="stylesheet" href="https://vjs.zencdn.net/8.10.0/video-js.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css">
+
+
+
+    <style>
+        .default__button i {
+            font-size: 2rem;
+        }
+        .loading-player {
+            position: absolute;
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .error-message .btn {
+            background-color: #B9382A;
+        }
+        .vjs-theme-forest .vjs-control-bar {
+            background: rgba(0,0,0,0.5);
+            font-size: 0.9rem;
+            padding: 10px;
+            margin-bottom: 0;
+            height: 4em;
+        }
+        .video-item.active .material-icons {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message-dialog" style="display: none;">
+        <div class="dialog">
+            <div class="dialog-content">
+                <h2>Ad-blocker detected</h2>
+                <p>Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</p>
+            </div>
+            <div class="dialog-controls">
+                <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" class="btn btn-primary" target="_blank">Whitelist</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo nav-item"><a href="/learning" style="font-size: 1.5rem;color: #fff;"><img src="/static/images/logo.svg" alt="Logo" style="filter: invert();"> Learning</a></div>
+            <ul>
+                <li class="nav-item"><a href="/learning/browse">Browse</a></li>
+                <li class="nav-item primary"><a href="mailto: tellspidy@gmail.com">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="error-message" id="blocker-message">
+            <span class="msg"><span class="highlight">Heads up!</span> Looks like you're using adblock. Please consider supporting us by whitelisting suyambu.net</span>
+            <a href="https://help.adblockplus.org/hc/en-us/articles/1500002589982-Add-a-website-to-the-allowlist" target="_blank" class="btn btn-primary btn-small">How?</a>
+        </div>
+        <div class="goback" style="display: inline-flex;">
+    <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions"
+        style="display: inline-flex; align-items: center;text-decoration: none;color: #222;">
+        <div class="material-icons">arrow_back</div> Go back
+    </a>
+</div>
+
+<div class="course-details video-details card">
+    <div class="player video-container" style="position: relative;">
+        <!-- <video poster="https://media.licdn.com/dms/image/C560DAQE3BMUZBYYfJA/learning-public-crop_675_1200/0/1644966154242?e=2147483647&v=beta&t=iD9X5MeKFvlZ9R5Q18qaGWvRxvwdi_tBvPIj11VR6Vk" src="https://unpkg.com/coursedio-14snoitulos-gninrael-enihcam-elbaterpretni-dna-iax-ia-elbanialpxe-gnicudorp-snoitadnuof-ia-dna-gninrael-enihcam-81emink-ni-sledom-gnidliub@1.0.2/video.mp4" data-overlay="2" data-title="Building models in KNIME" data-ckin="default">
+        </video> -->
+
+        <video
+            id="my-video"
+            class="video-js vjs-16-9 vjs-theme-forest"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+            poster="https://media.licdn.com/dms/image/C560DAQE3BMUZBYYfJA/learning-public-crop_675_1200/0/1644966154242?e=2147483647&v=beta&t=iD9X5MeKFvlZ9R5Q18qaGWvRxvwdi_tBvPIj11VR6Vk"
+            data-setup="{}" src="https://unpkg.com/coursedio-14snoitulos-gninrael-enihcam-elbaterpretni-dna-iax-ia-elbanialpxe-gnicudorp-snoitadnuof-ia-dna-gninrael-enihcam-81emink-ni-sledom-gnidliub@1.0.2/video.mp4">
+            <track kind="captions" src="https://unpkg.com/coursedio-14snoitulos-gninrael-enihcam-elbaterpretni-dna-iax-ia-elbanialpxe-gnicudorp-snoitadnuof-ia-dna-gninrael-enihcam-81emink-ni-sledom-gnidliub@1.0.2/subtitle.srt" srclang="en" label="English" default>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+
+    <div class="controls">
+
+        <div class="excercise-file-container">
+            <a href="https://unpkg.com/coursedio-14snoitulos-gninrael-enihcam-elbaterpretni-dna-iax-ia-elbanialpxe-gnicudorp-snoitadnuof-ia-dna-gninrael-enihcam-excercise@1.0.2/exercise.zip" class="btn btn-primary real-link" target="_blank">
+                <span class="material-icons">file_download</span> Exercise Files
+            </a>
+        </div>
+
+
+        <a href="https://www.highcpmgate.com/j6vac94z8w?key=14da8f293ddf188d89708536a3a94132" class="btn next-video">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+        <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/understanding-looping-in-knime/" class="btn next-video-real" style="display: none;" target="_blank">Next Video <span
+                class="material-icons">arrow_forward</span></a>
+
+    </div>
+
+    <div class="course-details-content">
+        <h1 class="title">Building models in KNIME</h1>
+        <p class="author">with Keith McCormick</p>
+        <p class="description">Learn best practices for how to produce explainable AI and interpretable machine learning solutions.</p>
+        <br><br>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/exploring-the-world-of-explainable-ai-and-interpretable-machine-learning/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Exploring the world of explainable AI and interpretable machine learning</p>
+                    <span>1m 2s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/target-audience/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Target audience</p>
+                    <span>1m 18s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/what-you-should-know/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>What you should know</p>
+                    <span>1m 3s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/understanding-the-what-and-why-your-models-predict/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Understanding the what and why your models predict</p>
+                    <span>4m 28s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/variable-importance-and-reason-codes/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Variable importance and reason codes</p>
+                    <span>2m 22s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/comparing-iml-and-xai/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Comparing IML and XAI</p>
+                    <span>4m 23s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/trends-in-ai-making-the-xai-problem-more-prominent/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Trends in AI making the XAI problem more prominent</p>
+                    <span>6m 18s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/local-and-global-explanations/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Local and global explanations</p>
+                    <span>2m 23s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/xai-for-debugging-models/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>XAI for debugging models</p>
+                    <span>2m 26s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/knime-support-of-global-and-local-explanations/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>KNIME support of global and local explanations</p>
+                    <span>2m 22s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/challenges-of-variable-attribution-with-linear-regression/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Challenges of variable attribution with linear regression</p>
+                    <span>8m 48s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/challenges-of-variable-attribution-with-neural-networks/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Challenges of variable attribution with neural networks</p>
+                    <span>3m 30s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/rashomon-effect/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Rashomon effect</p>
+                    <span>4m 42s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/what-qualifies-as-a-black-box/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>What qualifies as a black box?</p>
+                    <span>2m 51s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/why-do-we-have-black-box-models/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Why do we have black box models?</p>
+                    <span>4m 20s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/what-is-the-accuracy-interpretability-tradeoff/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>What is the accuracy interpretability tradeoff?</p>
+                    <span>4m 31s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/the-argument-against-xai/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>The argument against XAI</p>
+                    <span>3m 2s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/introducing-knime/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Introducing KNIME</p>
+                    <span>4m 8s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/building-models-in-knime/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item active">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Building models in KNIME</p>
+                    <span>5m 13s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/understanding-looping-in-knime/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Understanding looping in KNIME</p>
+                    <span>3m 1s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/where-to-find-available-knime-support-for-xai/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Where to find available KNIME support for XAI</p>
+                    <span>2m 53s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/providing-global-explanations-with-partial-dependence-plots/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Providing global explanations with partial dependence plots</p>
+                    <span>4m 58s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/using-surrogate-models-for-global-explanations/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Using surrogate models for global explanations</p>
+                    <span>1m 52s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/developing-and-interpreting-a-surrogate-model-with-knime/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Developing and interpreting a surrogate model with KNIME</p>
+                    <span>4m 52s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/permutation-feature-importance/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Permutation feature importance</p>
+                    <span>1m 11s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/global-feature-importance-demo/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Global feature importance demo</p>
+                    <span>6m 54s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/developing-an-intuition-for-shapley-values/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Developing an intuition for Shapley values</p>
+                    <span>4m 35s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/introducing-shap/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Introducing SHAP</p>
+                    <span>1m 48s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/using-lime-to-provide-local-explanations-for-neural-networks/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Using LIME to provide local explanations for neural networks</p>
+                    <span>2m 23s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/what-are-counterfactuals/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>What are counterfactuals?</p>
+                    <span>2m 27s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/knime-s-local-explanation-view-node/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>KNIME's Local Explanation View node</p>
+                    <span>4m 3s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/xai-view-node-demonstrating-knime/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>XAI View node demonstrating KNIME</p>
+                    <span>6m 41s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/general-advice-for-better-iml/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>General advice for better IML</p>
+                    <span>4m 39s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/why-feature-engineering-is-critical-for-iml/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Why feature engineering is critical for IML</p>
+                    <span>2m 10s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/corels-and-recent-trends/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>CORELS and recent trends</p>
+                    <span>4m 59s</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-item-container">
+            <a href="/learning/machine-learning-and-ai-foundations-producing-explainable-ai-xai-and-interpretable-machine-learning-solutions/continuing-to-explore-xai/" style="display: none;" class="real-link" target="_blank"></a>
+            <a href="https://www.highcpmgate.com/w6sz931n?key=bd947c352e550a252f727cad110520dc" class="video-item">
+                <div class="material-icons">play_circle_filled</div>
+                <div class="video-details">
+                    <p>Continuing to explore XAI</p>
+                    <span>1m 21s</span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let video = document.querySelector("video");
+    window.onload = function() {
+        video.play();
+    };
+
+    video.addEventListener("error", function() {
+        video.load();
+        video.play();
+    })
+</script>
+    </section>
+
+
+    <footer>
+        <div class="top-border">
+            <svg xmlns="http://www.w3.org/2000/svg" class="color-bar-footer" width="100%" height="3" viewBox="0 0 1441 3" preserveAspectRatio="none">
+                <g fill="none" fill-rule="evenodd">
+                  <rect width="144" height="3" fill="#0B88C3"></rect>
+                  <rect width="144" height="3" x="144" fill="#00D377"></rect>
+                  <rect width="144" height="3" x="288" fill="#00B950"></rect>
+                  <rect width="144" height="3" x="432" fill="#FFD247"></rect>
+                  <rect width="144" height="3" x="576" fill="#FF9800"></rect>
+                  <rect width="144" height="3" x="720" fill="#FF464F"></rect>
+                  <rect width="144" height="3" x="864" fill="#FF82B3"></rect>
+                  <rect width="144" height="3" x="1008" fill="#FF4385"></rect>
+                  <rect width="144" height="3" x="1152" fill="#A47DCC"></rect>
+                  <rect width="145" height="3" x="1296" fill="#875BB5"></rect>
+                </g>
+              </svg>
+        </div>
+
+        <div class="wrap">
+            <div class="footer-section">
+                <div class="f-sec">
+                    <h3>Technology Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=Cloud Computing">Cloud Computing</a></li>
+                        <li><a href="/learning/search/?q=Data Science">Data Science</a></li>
+                        <li><a href="/learning/search/?q=Database Management">Database Management</a></li>
+                        <li><a href="/learning/search/?q=DevOps">DevOps</a></li>
+                        <li><a href="/learning/search/?q=IT Help Desk">IT Help Desk</a></li>
+                        <li><a href="/learning/search/?q=Mobile Development">Mobile Development</a></li>
+                        <li><a href="/learning/search/?q=Network and System Administration">Network and System Administration</a></li>
+                        <li><a href="/learning/search/?q=Security">Security</a></li>
+                        <li><a href="/learning/search/?q=Software Development">Software Development</a></li>
+                        <li><a href="/learning/search/?q=Web Development">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Creative Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=AEC">AEC</a></li>
+                        <li><a href="/learning/search/?q=Animation and Illustration">Animation and Illustration</a></li>
+                        <li><a href="/learning/search/?q=Audio and Music">Audio and Music</a></li>
+                        <li><a href="/learning/search/?q=Graphic Design">Graphic Design</a></li>
+                        <li><a href="/learning/search/?q=Motion Graphics and VFX">Motion Graphics and VFX</a></li>
+                        <li><a href="/learning/search/?q=Photography">Photography</a></li>
+                        <li><a href="/learning/search/?q=Product and Manufacturing">Product and Manufacturing</a></li>
+                        <li><a href="/learning/search/?q=User Experience">User Experience</a></li>
+                        <li><a href="/learning/search/?q=Visualization and Real-Time">Visualization and Real-Time</a></li>
+                        <li><a href="/learning/search/?q=Web Design">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-sec">
+                    <h3>Developer Courses</h3>
+                    <ul>
+                        <li><a href="/learning/search/?q=SQL Database">SQL Database</a></li>
+                        <li><a href="/learning/search/?q=Python Programming">Python Programming</a></li>
+                        <li><a href="/learning/search/?q=Angular">Angular</a></li>
+                        <li><a href="/learning/search/?q=Android Development">Android Development</a></li>
+                        <li><a href="/learning/search/?q=iOS Development">iOS Development</a></li>
+                        <li><a href="/learning/search/?q=Web Development">Web Development</a></li>
+                        <li><a href="/learning/search/?q=Vue.js">Vue.js</a></li>
+                        <li><a href="/learning/search/?q=Front-End Developement">Front-End Developement</a></li>
+                        <li><a href="/learning/search/?q=React">React</a></li>
+                        <li><a href="/learning/search/?q=C++ for Developers">C++ for Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Copyright © 2021 — Suyambu Technologies</p>
+        </div>
+    </footer>
+
+    <script src="/static/learning/js/app.js"></script>
+
+
+        <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+        <script src="/static/learning/js/earnings.js"></script>
+
+
+</body>
+</html>
